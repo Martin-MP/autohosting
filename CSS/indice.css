@@ -12,7 +12,10 @@
 .mugetabrothers{
   max-width: 20%;
 }
-
+.paddingtop{
+  padding-top: 10px;
+  margin-top: 10px;
+}
 .css-selector {
     font-family: 'Rubik Mono One', serif;
 }
