@@ -31,7 +31,7 @@
       </div>
     </div>
   </nav>
-
+v1
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 col-md-4">
@@ -54,15 +54,13 @@
             <input type="password" class="form-control" id="pass2" placeholder="Enter password" name="pass2" required>
             <div class="valid-feedback">Válido.</div>
             <div class="invalid-feedback">Por favor, rellena este apartado.</div>
-            <div class="invalid-feedback">
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($_POST["pass"] != $_POST["pass2"]) {
-                    echo "Las contraseñas no coinciden";
+                    echo "<p class='text-danger'>Las contraseñas no coinciden</p>";
                 }
             }
             ?>
-            </div>
             </div>
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
