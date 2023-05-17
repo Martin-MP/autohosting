@@ -1,4 +1,3 @@
-// make a filter that checks if the database is accessible
 <?php
 $host = "localhost";
 $user = "php";
