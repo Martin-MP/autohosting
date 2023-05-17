@@ -45,13 +45,13 @@ if (!$connection) {
       <div class="container-fluid">
       <div class="row">
          <div class="col-sm-12 col-md-4">
-            <h2 class="muguetatitle">Registrate</h2>
+            <h2 style="font-family: 'Bebas Neue', sans-serif;" class="Grande">Registrate</h2>
          </div>
       </div>
       <form action="" class="was-validated" method="post">
   <div class="row justify-content-center">
-    <div class="col-md-4">
-      <div class="mb-3 mt-3">
+    <div class="col-md-4 justify-content-center">
+      <div class="mb-3 mt-3 justify-content-center">
         <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
         <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
         <div class="valid-feedback">Válido.</div>
@@ -69,13 +69,13 @@ if (!$connection) {
         ?>
 
       </div>
-      <div class="mb-3">
+      <div class="mb-3 justify-content-center">
         <label style="font-family: Rubik Mono One;" for="pwd" class="form-label">Password:</label>
         <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pass" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
       </div>
-      <div class="mb-3">
+      <div class="mb-3 justify-content-center">
         <label style="font-family: Rubik Mono One;" for="pass2" class="form-label">Confirm password:</label>
         <input type="password" class="form-control" id="pass2" placeholder="Enter password" name="pass2" required>
         <div class="valid-feedback">Válido.</div>
@@ -91,12 +91,12 @@ if (!$connection) {
         ?>
 
       </div>
-      <div class="form-check mb-3">
+      <div class="form-check mb-3 justify-content-center">
         <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
         <label class="form-check-label" for="myCheck">Acepto términos y condiciones.</label>
         <div class="valid-feedback">Válido</div>
         <div class="invalid-feedback">Marca esta opción para avanzar.</div>
-      </div>
+      </div class="justify-content-center">
       <button type="submit" class="btn btn-primary">Aceptar</button>
     </div>
   </div>
@@ -124,7 +124,7 @@ if (!$connection) {
         ?>
       </form>
       <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-4 justify-content-center">
           <p>¿Ya tienes cuenta? Inicia sesión.</p>
           <button type="submit" class="btn btn-primary" onclick="window.location.href = '../index.html';">Inicia
           sesión</button>
