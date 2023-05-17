@@ -99,7 +99,7 @@ if (!$connection) {
       <button type="submit" class="btn btn-primary">Aceptar</button>
     </div>
   </div>
-  
+
         <?php
         echo $_POST["user"];
         echo $_POST["pass"];
