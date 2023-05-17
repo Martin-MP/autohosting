@@ -3,8 +3,8 @@ import argparse
 
 
 def check_root():
-    whoami = subprocess.run(['whoami'], stdout=subprocess.PIPE)
-    if whoami.stdout.decode('utf-8').strip() != 'root':
+    whoami = os.popen('whoami').read()
+    if whoami.strip() != 'root':
         print('You need to be root to run this script')
         exit(1)
 
