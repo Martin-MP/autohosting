@@ -31,14 +31,14 @@
       </div>
     </div>
   </nav>
-v1
+v2
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 col-md-4">
         <h2 class="rubik">Registrate</h2>
       </div>
     </div>
-    <form action="" class="was-validated"> #Formulario
+    <form action="" class="was-validated" method="post"> #Formulario
         <div class="mb-3 mt-3">
           <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
           <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
