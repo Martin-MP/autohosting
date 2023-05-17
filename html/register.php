@@ -96,13 +96,31 @@ if (!$connection) {
          </div>
          <button type="submit" class="btn btn-primary">Aceptar</button>
 
-         <?php
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          if (empty($_POST["uname"])) {
+              echo "El campo 'Nombre de usuario' es obligatorio<br>";
+              $valid = false;
+          }
+          if (empty($_POST["pass"])) {
+              echo "El campo 'Contraseña' es obligatorio<br>";
+              $valid = false;
+          }
+          if (empty($_POST["pass2"])) {
+              echo "El campo 'Contraseña' es obligatorio<br>";
+              $valid = false;
+          }
+          if (empty($_POST["subd"])) {
+              echo "El campo 'Contraseña' es obligatorio<br>";
+              $valid = false;
+          }
           if ($valid) {
             header('location:/post.php');
             $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["user"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
             $user_result = mysqli_query($connection, $user_query);
           }
-          ?>
+        }
+        ?>
 
       </form>
       <p>¿Ya tienes cuenta? Inicia sesión.</p>
