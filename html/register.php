@@ -1,9 +1,5 @@
 <?php
-$host = "localhost";
-$user = "php";
-$password = "alumnat";
-$database = "autohosting_db";
-$connection = mysqli_connect($host, $user, $password, $database);
+$connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
 if (!$connection) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
@@ -94,7 +90,7 @@ if (!$connection) {
             
               if ($valid) {
                 header('location:/post.php');
-                $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["username"]) . "', '" . mysqli_real_escape_string($connection, $_POST["password"]) . "')";
+                $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["user"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
                 $user_result = mysqli_query($connection, $user_query);
             }
             }
