@@ -121,11 +121,13 @@ if (!$connection) {
         }
         ?>
       </form>
-    <div class="col-md-4">
-      <p>¿Ya tienes cuenta? Inicia sesión.</p>
-      <button type="submit" class="btn btn-primary" onclick="window.location.href = '../index.html';">Inicia
-      sesión</button>
-    </div>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <p>¿Ya tienes cuenta? Inicia sesión.</p>
+          <button type="submit" class="btn btn-primary" onclick="window.location.href = '../index.html';">Inicia
+          sesión</button>
+        </div>
+      </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
    </body>
 </html>
