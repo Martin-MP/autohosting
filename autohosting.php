@@ -9,7 +9,7 @@
             <br>
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {            
-            $valid = true;
+                $valid = true;
                 if ($_POST["pass"] != $_POST["pass2"]) {
                     echo "Las contraseñas no coinciden<br>";
                     $valid = false;
