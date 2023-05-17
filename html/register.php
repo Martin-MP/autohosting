@@ -42,11 +42,12 @@ if (!$connection) {
             </div>
          </div>
       </nav>
-      <div class="container-fluid">
-      <div class="row">
-         <div class="col-sm-12 col-md-4">
+      <div class="container-fluid col-sm-12 col-md-4"">
+        <div class="row">
+         <div>
             <h2 class="container text-center Grande my-5">Registrate</h2>
          </div>
+        </div>
       </div>
       <form action="" class="was-validated" method="post">
   <div class="row justify-content-center align-items-center align-items-center align-items-center">
