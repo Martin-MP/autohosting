@@ -31,7 +31,7 @@
       </div>
     </div>
   </nav>
-v2
+v3
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 col-md-4">
@@ -69,10 +69,31 @@ v2
           <div class="invalid-feedback">Marca esta opción para avanzar.</div>
         </div>
         <button type="submit" class="btn btn-primary">Aceptar</button>
-        <p>¿Ya tienes cuenta? Inicia sesión.</p>
-        <button type="submit" class="btn btn-primary">Inicia sesión</button>
       </form>
+      <p>¿Ya tienes cuenta? Inicia sesión.</p>
+      <button type="submit" class="btn btn-primary" onclick="window.location.href = '../index.html';">Inicia sesión</button>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
 
+<?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {            
+                $valid = true;
+                if ($_POST["pass"] != $_POST["pass2"]) {
+                    $valid = false;
+                }
+                
+                if (empty($_POST["uname"])) {
+                    $valid = false;
+                }
+                if (empty($_POST["pass"])) {
+                    $valid = false;
+                }
+                if (empty($_POST["pass2"])) {
+                    $valid = false;
+                }
+                if ($valid) {
+                    header('location:post.php');
+                }
+            }
+            ?>
