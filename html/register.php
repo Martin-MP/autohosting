@@ -48,54 +48,58 @@ if (!$connection) {
          </div>
       </div>
       <form action="" class="was-validated" method="post">
-         <div class="mb-3 mt-3">
-            <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
-            <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
-            <div class="valid-feedback">Válido.</div>
-            <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="mb-3 mt-3">
+        <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
+        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
+        <div class="valid-feedback">Válido.</div>
+        <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-              $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["user"]) . "'";
-              $result = mysqli_query($connection, $query);
-              if (mysqli_num_rows($result) > 0) {
-                echo "<div class='invalid-feedback'>El usuario ya existe</div>";
-                $valid = false;
-              }
-            }
-            ?>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["user"]) . "'";
+          $result = mysqli_query($connection, $query);
+          if (mysqli_num_rows($result) > 0) {
+            echo "<div class='invalid-feedback'>El usuario ya existe</div>";
+            $valid = false;
+          }
+        }
+        ?>
 
-         </div>
-         <div class="mb-3">
-            <label style="font-family: Rubik Mono One;" for="pwd" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pass" required>
-            <div class="valid-feedback">Válido.</div>
-            <div class="invalid-feedback">Por favor, rellena este apartado.</div>
-         </div>
-         <div class="mb-3">
-            <label style="font-family: Rubik Mono One;" for="pass2" class="form-label">Confirm password:</label>
-            <input type="password" class="form-control" id="pass2" placeholder="Enter password" name="pass2" required>
-            <div class="valid-feedback">Válido.</div>
-            <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+      </div>
+      <div class="mb-3">
+        <label style="font-family: Rubik Mono One;" for="pwd" class="form-label">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pass" required>
+        <div class="valid-feedback">Válido.</div>
+        <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+      </div>
+      <div class="mb-3">
+        <label style="font-family: Rubik Mono One;" for="pass2" class="form-label">Confirm password:</label>
+        <input type="password" class="form-control" id="pass2" placeholder="Enter password" name="pass2" required>
+        <div class="valid-feedback">Válido.</div>
+        <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
-            <?php
-               if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                 if ($_POST["pass"] != $_POST["pass2"]) {
-                  echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
-                  $valid = false;
-                 }
-               }
-            ?>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          if ($_POST["pass"] != $_POST["pass2"]) {
+            echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
+            $valid = false;
+          }
+        }
+        ?>
 
-         </div>
-         <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
-            <label class="form-check-label" for="myCheck">Acepto términos y condiciones.</label>
-            <div class="valid-feedback">Válido</div>
-            <div class="invalid-feedback">Marca esta opción para avanzar.</div>
-         </div>
-         <button type="submit" class="btn btn-primary">Aceptar</button>
-
+      </div>
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+        <label class="form-check-label" for="myCheck">Acepto términos y condiciones.</label>
+        <div class="valid-feedback">Válido</div>
+        <div class="invalid-feedback">Marca esta opción para avanzar.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Aceptar</button>
+    </div>
+  </div>
+  
         <?php
         echo $_POST["user"];
         echo $_POST["pass"];
@@ -116,7 +120,9 @@ if (!$connection) {
           }
         }
         ?>
+<div class="col-md-4">
 
+</div>
       </form>
       <p>¿Ya tienes cuenta? Inicia sesión.</p>
       <button type="submit" class="btn btn-primary" onclick="window.location.href = '../index.html';">Inicia
