@@ -38,7 +38,7 @@
         <h2 class="rubik">Registrate</h2>
       </div>
     </div>
-    <form action="" class="was-validated">
+    <form action="" class="was-validated"> #Formulario
         <div class="mb-3 mt-3">
           <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
           <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
@@ -53,7 +53,15 @@
             <label style="font-family: Rubik Mono One;" for="confirm-pwd" class="form-label">Confirm password:</label>
             <input type="password" class="form-control" id="confirm-pwd" placeholder="Enter password" name="confirm-pswd" required>
             <div class="valid-feedback">Válido.</div>
-            <div class="invalid-feedback"> </div>
+            <div class="invalid-feedback">
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if ($_POST["pass"] != $_POST["pass2"]) {
+                    echo "Las contraseñas no coinciden";
+                }
+            }
+            ?>
+            </div>
             </div>
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
