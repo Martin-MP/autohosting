@@ -41,18 +41,19 @@
     <form action="" class="was-validated"> #Formulario
         <div class="mb-3 mt-3">
           <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
-          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
           <div class="valid-feedback">Válido.</div>
           <div class="invalid-feedback">Por favor, rellena este apartado.</div>
         </div>
         <div class="mb-3">
           <label style="font-family: Rubik Mono One;" for="pwd" class="form-label">Password:</label>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pass" required>
           <div class="valid-feedback">Válido.</div>          <div class="invalid-feedback">Por favor, rellena este apartado.</div>        </div>
         <div class="mb-3">
-            <label style="font-family: Rubik Mono One;" for="confirm-pwd" class="form-label">Confirm password:</label>
-            <input type="password" class="form-control" id="confirm-pwd" placeholder="Enter password" name="confirm-pswd" required>
+            <label style="font-family: Rubik Mono One;" for="pass2" class="form-label">Confirm password:</label>
+            <input type="password" class="form-control" id="pass2" placeholder="Enter password" name="pass2" required>
             <div class="valid-feedback">Válido.</div>
+            <div class="invalid-feedback">Por favor, rellena este apartado.</div>
             <div class="invalid-feedback">
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
