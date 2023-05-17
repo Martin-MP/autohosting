@@ -57,7 +57,7 @@ v2
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($_POST["pass"] != $_POST["pass2"]) {
-                    echo "<p class='text-danger'>Las contraseñas no coinciden</p>";
+                    echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
                 }
             }
             ?>
