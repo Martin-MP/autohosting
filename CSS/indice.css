@@ -25,10 +25,9 @@
 .css-selector {
     font-family: 'Rubik Mono One', serif;
 }
-.BebasNeue {
-  font-family: 'Bebas Neue', sans-serif;
-}
+
 .muguetatitle {
   margin-top: 10%;
-  font-size: 2000px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 50px;
 }

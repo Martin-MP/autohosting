@@ -45,7 +45,7 @@ if (!$connection) {
       <div class="container-fluid">
       <div class="row">
          <div class="col-sm-12 col-md-4">
-            <h2 class="muguetatitle" style="font-family: Bebas Neue;">Registrate</h2>
+            <h2 class="muguetatitle">Registrate</h2>
          </div>
       </div>
       <form action="" class="was-validated" method="post">
