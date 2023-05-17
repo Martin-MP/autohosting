@@ -61,10 +61,12 @@ if (!$connection) {
                 }
                 if ($valid) {
                     $query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["username"]) . "', '" . mysqli_real_escape_string($connection, $_POST["password"]) . "')";
-                    mysqli_query($connection, $query);
+                    $user_result = mysqli_query($connection, $query);
                     $query = "INSERT INTO domains (name, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["subdomain"]) . "', " . mysqli_insert_id($connection) . ")";
-                    mysqli_query($connection, $query);
-                    echo "User created successfully<br>";
+                    $domain_result = mysqli_query($connection, $query);
+                    // print the two results for debugging purposes
+                    echo "User result: " . $user_result . "<br>";
+                    echo "Domain result: " . $domain_result . "<br>";
                 }
             }
             ?>
