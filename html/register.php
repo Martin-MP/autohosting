@@ -17,6 +17,7 @@ if (!$connection) {
       <link rel="stylesheet" href="../CSS/indice.css" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik Mono One">
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
    </head>
    <body>
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -113,6 +114,7 @@ if (!$connection) {
           if (empty($_POST["pass2"])) {
               $valid = false;
           }
+          echo $valid;
           if ($valid) {
             header('location:/post.php');
             $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["user"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
