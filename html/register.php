@@ -1,4 +1,5 @@
 <?php
+$valid = true;
 $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
 if (!$connection) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -54,6 +55,16 @@ if (!$connection) {
             <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
             <div class="valid-feedback">Válido.</div>
             <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+
+            <?php
+            $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["username"]) . "'";
+            $result = mysqli_query($connection, $query);
+            if (mysqli_num_rows($result) > 0) {
+                echo "<div class='invalid-feedback'>El usuario ya existe</div>";
+                $valid = false;
+            }
+            ?>
+
          </div>
          <div class="mb-3">
             <label style="font-family: Rubik Mono One;" for="pwd" class="form-label">Password:</label>
@@ -66,13 +77,16 @@ if (!$connection) {
             <input type="password" class="form-control" id="pass2" placeholder="Enter password" name="pass2" required>
             <div class="valid-feedback">Válido.</div>
             <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+
             <?php
                if ($_SERVER["REQUEST_METHOD"] == "POST") {
                  if ($_POST["pass"] != $_POST["pass2"]) {
-                   echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
+                  echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
+                  $valid = false;
                  }
                }
                ?>
+
          </div>
          <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
@@ -81,20 +95,15 @@ if (!$connection) {
             <div class="invalid-feedback">Marca esta opción para avanzar.</div>
          </div>
          <button type="submit" class="btn btn-primary">Aceptar</button>
+
          <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-              $valid = true;
-              if ($_POST["pass"] != $_POST["pass2"]) {
-                $valid = false;
-              }
-            
-              if ($valid) {
-                header('location:/post.php');
-                $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["user"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
-                $user_result = mysqli_query($connection, $user_query);
-            }
-            }
-            ?>
+          if ($valid) {
+            header('location:/post.php');
+            $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["user"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
+            $user_result = mysqli_query($connection, $user_query);
+          }
+          ?>
+
       </form>
       <p>¿Ya tienes cuenta? Inicia sesión.</p>
       <button type="submit" class="btn btn-primary" onclick="window.location.href = '../index.html';">Inicia
