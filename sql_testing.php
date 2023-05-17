@@ -23,10 +23,6 @@ if (!$connection) {
             // check if any field is empty and print an error message
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $valid = true;
-                if ($_POST["password"] != $_POST["password_confirmation"]) {
-                    echo "Passwords do not match<br>";
-                    $valid = false;
-                }
                 if (empty($_POST["username"])) {
                     echo "Username is required<br>";
                     $valid = false;
@@ -45,6 +41,10 @@ if (!$connection) {
                 }
                 if (empty($_POST["password_confirmation"])) {
                     echo "Password confirmation is required<br>";
+                    $valid = false;
+                }
+                if (!empty($_POST["password"]) && !empty($_POST["password_confirmation"]) && $_POST["password"] != $_POST["password_confirmation"]) {
+                    echo "Passwords do not match<br>";
                     $valid = false;
                 }
                 if (empty($_POST["subdomain"])) {
