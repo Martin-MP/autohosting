@@ -61,6 +61,8 @@ if (!$connection) {
               if (mysqli_num_rows($result) > 0) {
                 echo "<div class='invalid-feedback'>El usuario ya existe</div>";
                 $valid = false;
+                echo "$query";
+                echo "$result";
               }
             }
             ?>
@@ -85,7 +87,7 @@ if (!$connection) {
                   $valid = false;
                  }
                }
-               ?>
+            ?>
 
          </div>
          <div class="form-check mb-3">
@@ -99,19 +101,12 @@ if (!$connection) {
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           if (empty($_POST["uname"])) {
-              echo "El campo 'Nombre de usuario' es obligatorio<br>";
               $valid = false;
           }
           if (empty($_POST["pass"])) {
-              echo "El campo 'Contraseña' es obligatorio<br>";
               $valid = false;
           }
           if (empty($_POST["pass2"])) {
-              echo "El campo 'Contraseña' es obligatorio<br>";
-              $valid = false;
-          }
-          if (empty($_POST["subd"])) {
-              echo "El campo 'Contraseña' es obligatorio<br>";
               $valid = false;
           }
           if ($valid) {
