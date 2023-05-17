@@ -33,24 +33,24 @@ def create_directory(username, domain):
 
 def apache(username, domain):
     commands = [
-        f"touch /etc/apache2/sites-available/{domain}.conf"
+        f"touch /etc/apache2/sites-available/{domain}.conf",
         "echo   '<VirtualHost *:80>\n" + \
                 "ServerAdmin webmaster@localhost\n" + \
-                "ServerName {domain}\n" + \
-                "ServerAlias www.{domain}\n" + \
-                "Redirect / https://{domain}/\n" + \
+                f"ServerName {domain}\n" + \
+                f"ServerAlias www.{domain}\n" + \
+                f"Redirect / https://{domain}/\n" + \
                 "</VirtualHost>\n" + \
                 "<VirtualHost *:443>\n" + \
                 "ServerAdmin admin@localhost\n" + \
-                "ServerName {domain}\n" + \
-                "ServerAlias www.{domain}\n" + \
-                "DocumentRoot /var/www/{username}/{domain}/\n" + \
+                f"ServerName {domain}\n" + \
+                f"ServerAlias www.{domain}\n" + \
+                f"DocumentRoot /var/www/{username}/{domain}/\n" + \
                 "ErrorLog ${APACHE_LOG_DIR}/error.log\n" + \
                 "CustomLog ${APACHE_LOG_DIR}/access.log combined\n" + \
                 "SSLEngine on\n" + \
                 "SSLCertificateFile /etc/apache2/certificate/apache2.cert\n" + \
                 "SSLCertificateKeyFile /etc/apache2/certificate/apache2.key\n" + \
-                "</VirtualHost>' > /etc/apache2/sites-available/{domain}.conf",
+                f"</VirtualHost>' > /etc/apache2/sites-available/{domain}.conf",
         "systemctl restart ssh",
         f"a2ensite {domain}.conf",
         "a2enmod ssl",
