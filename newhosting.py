@@ -1,4 +1,4 @@
-import subprocess
+import os
 import argparse
 
 
@@ -14,7 +14,7 @@ def create_user(username, password):
         f'useradd -g clients -s /bin/bash -m {username}',
         f'echo -e "{password}\n{password}" | passwd {username}'
     ]
-    return [subprocess.run(command.split()) for command in commands]
+    return [os.system(command) for command in commands]
 
 
 def create_directory(username, domain):
@@ -29,7 +29,7 @@ def create_directory(username, domain):
         f"chown {username}:clients /var/www/{username}/{domain}/index.html",
         f"chmod 755 /var/www/{username}/{domain}/index.html"
     ]
-    return [subprocess.run(command.split()) for command in commands]
+    return [os.system(command) for command in commands]
 
 
 def apache(username, domain):
@@ -57,7 +57,7 @@ def apache(username, domain):
         "a2enmod ssl",
         "systemctl reload apache2",
     ]
-    return [subprocess.run(command.split()) for command in commands]
+    return [os.system(command) for command in commands]
 
 
 check_root()
