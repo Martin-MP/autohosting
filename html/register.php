@@ -111,6 +111,8 @@ if (!$connection) {
             header('location:/post.php');
             $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["user"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
             $user_result = mysqli_query($connection, $user_query);
+            echo $_POST["user"];
+            echo $_POST["pass"];
           }
         }
         ?>
