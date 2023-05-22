@@ -42,6 +42,7 @@
 
               $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
               $result = mysqli_query($connection, $query);
+              echo $result;
               if (mysqli_num_rows($result) < 1) {
                 $valid = false;
                 $user_invalid = true;
@@ -49,6 +50,7 @@
               else {
                 $query_psw = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
                 $result_psw = mysqli_query($connection, $query);
+                echo $result_psw;
                 if (mysqli_num_rows($result) < 1) {
                   $valid = false;
                   $pass_invalid = true;
