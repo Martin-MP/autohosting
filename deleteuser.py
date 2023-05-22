@@ -15,7 +15,7 @@ class Database:
         self.domains = list()
 
     def get_sub_domains(self, username):
-        query = f"SELECT domain FROM subdomains WHERE username='{username}'"
+        query = f"SELECT domain FROM domains WHERE username='{username}'"
         self.cursor.execute(query)
         self.domains = cursor.fetchall()
 
