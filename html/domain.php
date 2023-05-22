@@ -58,10 +58,6 @@
               else {
                 $query_password = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
                 $result_password = mysqli_query($connection, $query_password);
-                echo $query;
-                echo mysqli_num_rows($result);
-                echo $query_password;
-                echo mysqli_num_rows($result_password);
                 if (mysqli_num_rows($result_password) < 1) {
                   $valid = false;
                   $pass_invalid = true;
