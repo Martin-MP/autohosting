@@ -37,9 +37,9 @@ def apache(username, domain):
         f"touch /etc/apache2/sites-available/{domain}.conf",
         "echo   '<VirtualHost *:80>\n" + \
                 "ServerAdmin webmaster@localhost\n" + \
-                f"ServerName {domain}\n" + \
-                f"ServerAlias www.{domain}\n" + \
-                f"Redirect / https://{domain}/\n" + \
+                f"ServerName {domain}.muguetabrothers.co.uk\n" + \
+                f"ServerAlias www.{domain}.muguetabrothers.co.uk\n" + \
+                f"Redirect / https://{domain}.muguetabrothers.co.uk/\n" + \
                 "</VirtualHost>\n" + \
                 "<VirtualHost *:443>\n" + \
                 "ServerAdmin admin@localhost\n" + \
