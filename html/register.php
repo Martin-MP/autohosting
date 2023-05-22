@@ -11,28 +11,27 @@
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
    </head>
    <body>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-         <div class="container-fluid">
-            <a class="mugetabrothers" href="../index.php"> <img class="mugetabrothers" src="../images/muguetabrothers.png"
-               alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-               <ul class="navbar-nav">
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Crear Cuenta</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="domain.php">Crear Dominio</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="domainlist.html">Dominios</a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </nav>
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid menosmargin">
+      <a class="navbar-brand" href="../index.php"><img src="../images/muguetabrothers.png" alt="Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="register.php">Crear Cuenta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="domain.php">Crear Dominio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="domainlist.html">Dominios</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
       <div class="container-fluid col-sm-4 col-md-4">
         <div class="row">
          <div>
