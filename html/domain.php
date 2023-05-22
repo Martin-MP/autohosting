@@ -31,10 +31,10 @@ if (!$connection) {
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                <ul class="navbar-nav">
                   <li class="nav-item">
-                     <a class="nav-link" href="register.php">Crear Cuenta</a>
+                     <a class="nav-link" href="#">Crear Cuenta</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Crear Dominio</a>
+                     <a class="nav-link" href="domain.php">Crear Dominio</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="domainlist.html">Dominios</a>
@@ -59,16 +59,6 @@ if (!$connection) {
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
-          $result = mysqli_query($connection, $query);
-          if (mysqli_num_rows($result) > 0) {
-            echo "<div class='invalid-feedback'>El usuario ya existe</div>";
-            $valid = false;
-          }
-        }
-        ?>
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Password:</label>
@@ -76,7 +66,11 @@ if (!$connection) {
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
       </div>
-
+      <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
+        <label style="font-family: Rubik Mono One;" for="domain" class="form-label">Pon un dominio:</label>
+        <input type="password" class="form-control" id="domain" placeholder="Enter password" name="domain" required>
+        <div class="valid-feedback">Válido.</div>
+        <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
       </div>
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
@@ -89,6 +83,7 @@ if (!$connection) {
     </div>
   </div>
 
+        
       </form>
       <div class="row justify-content-center align-items-center align-items-center align-items-center">
         <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
