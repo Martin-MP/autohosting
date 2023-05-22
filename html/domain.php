@@ -46,7 +46,7 @@ if (!$connection) {
       <div class="container-fluid col-sm-4 col-md-4">
         <div class="row">
          <div>
-            <h2 class="container text-center Grande my-5">Registrate</h2>
+            <h2 class="container text-center Grande my-5">Crea un dominio</h2>
          </div>
         </div>
       </div>
@@ -68,7 +68,7 @@ if (!$connection) {
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="domain" class="form-label">Pon un dominio:</label>
-        <input type="password" class="form-control" id="domain" placeholder="Enter password" name="domain" required>
+        <input type="password" class="form-control" id="domain" placeholder="Enter domain" name="domain" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
