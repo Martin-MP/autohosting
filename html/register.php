@@ -118,6 +118,7 @@ if (!$connection) {
               $valid = false;
           }
           if ($valid) {
+            echo "es válido";
             header('location:post.php');
             $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
             $user_result = mysqli_query($connection, $user_query);
