@@ -1,5 +1,6 @@
 import os
 import argparse
+import subprocess
 
 
 def check_root():
@@ -12,9 +13,17 @@ def check_root():
 def create_user(username, password):
     commands = [
         f'useradd -g clients -s /bin/bash -m {username}',
-        f'echo -e "{password}\n{password}" | passwd {username}'
+        #f'echo -e "{password}\n{password}" | passwd {username} --stdin'
     ]
     return [os.system(command) for command in commands]
+
+
+def set_password(username, password):
+    try:
+        subprocess.run(['passwd', username], input=password.encode(), check=True)
+        print('Password set successfully')
+    except subprocess.CalledProcessError as e:
+        print('Error setting password:', e)
 
 
 def create_directory(username, domain):
@@ -67,5 +76,6 @@ parser.add_argument('-d', '--domain', type=str, required=True, help='Domain')
 parser.add_argument('-p', '--password', type=str, required=True, help='Password')
 args = parser.parse_args()
 create_user(args.username, args.password)
+set_password(args.username, args.password)
 create_directory(args.username, args.domain)
 apache(args.username, args.domain)
