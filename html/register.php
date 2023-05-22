@@ -72,7 +72,6 @@ if (!$connection) {
         }
         ?>
 
-      </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Password:</label>
         <input type="password" class="form-control" id="pass" placeholder="Enter password" name="pass" required>
