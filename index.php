@@ -14,9 +14,9 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="images/muguetabrothers.png" alt="Logo"></a>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark menosmargin">
+    <div class="container-fluid menosmargin">
+      <a class="navbar-brand menosmargin" href="#"><img src="images/muguetabrothers.png" alt="Logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,7 +29,7 @@
             <a class="nav-link" href="html/domain.php">Crear Dominio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="html/domainlist.html">Dominios</a>
+            <a class="nav-link" href="html/domainlist.php">Dominios</a>
           </li>
         </ul>
       </div>
@@ -61,7 +61,7 @@
               <img src="images/muguetabrothers.png" alt="Mugueta" class="d-block w-100 pequenyo">
            </div>
            <div class="carousel-item">
-              <img src="images/kirbydrip.jpeg" alt="Kirby" class="d-block w-100 pequenyo">
+              <img src="images/kirbydrip.jpg" alt="Kirby" class="d-block w-100 pequenyo">
            </div>
         </div>
         <!-- Los iconos de las flechas -->

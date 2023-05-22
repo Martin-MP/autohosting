@@ -62,3 +62,6 @@ h1 {
   min-height: 40vw;
   max-height: 40vw;
 }
+.menosmargin {
+  margin-top: 0px;
+}
