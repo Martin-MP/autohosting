@@ -20,9 +20,9 @@ def create_user(username, password):
 
 def set_password(username, password):
     try:
-        subprocess.run(['passwd', username], input=password.encode(), check=True)
+        subprocess.run(f'echo -e "{password}\n{password}" | passwd {username} --stdin')
         print('Password set successfully')
-    except subprocess.CalledProcessError as e:
+    except exception as e:
         print('Error setting password:', e)
 
 
