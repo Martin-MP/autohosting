@@ -1,13 +1,3 @@
-<?php
-$valid = true;
-$connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
-if (!$connection) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    header('location:erestonto.php');
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
    <head>
@@ -21,32 +11,75 @@ if (!$connection) {
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
    </head>
    <body>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-         <div class="container-fluid">
-            <a class="mugetabrothers" href="../index.php"> <img class="mugetabrothers" src="../images/muguetabrothers.png"
-               alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-               <ul class="navbar-nav">
-                  <li class="nav-item">
-                     <a class="nav-link" href="register.php">Crear Cuenta</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="domain.php">Crear Dominio</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="domainlist.html">Dominios</a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </nav>
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid menosmargin">
+      <a class="navbar-brand" href="../index.php"><img src="../images/muguetabrothers.png" alt="Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="register.php">Crear Cuenta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="domain.php">Crear Dominio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="domainlist.html">Dominios</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
       <div class="container-fluid col-sm-4 col-md-4">
         <div class="row">
          <div>
             <h2 class="container text-center Grande my-5">Crea un dominio</h2>
+
+            <?php
+            $valid = true;
+            $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
+            if (!$connection) {
+              echo "Error: Unable to connect to MySQL." . PHP_EOL;
+              echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+              header('location:erestonto.php');
+            exit;
+            }
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+              $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
+              $result = mysqli_query($connection, $query);
+              if (mysqli_num_rows($result) < 1) {
+                $valid = false;
+              }
+
+              if ($_POST["pass"] != $_POST["pass2"]) {
+                $valid = false;
+              }
+
+              if (empty($_POST["uname"])) {
+                  $valid = false;
+              }
+
+              if (empty($_POST["pass"])) {
+                  $valid = false;
+              }
+
+              if (empty($_POST["pass2"])) {
+                  $valid = false;
+              }
+
+              if ($valid) {
+                echo "<p>Tu usuario se ha creado correctamente. Ve a crear dominio para crear tu dominio.</p>";
+                $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
+                $user_result = mysqli_query($connection, $user_query);
+                exit();
+              }        
+            }
+            ?>
+
          </div>
         </div>
       </div>
