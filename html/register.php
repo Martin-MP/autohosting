@@ -40,6 +40,53 @@
          </div>
         </div>
       </div>
+
+      <?php
+      $valid = true;
+      $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
+      if (!$connection) {
+        echo "Error: Unable to connect to MySQL." . PHP_EOL;
+        echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+        header('location:erestonto.php');
+      exit;
+      }
+
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
+        $result = mysqli_query($connection, $query);
+        if (mysqli_num_rows($result) > 0) {
+          echo "<div class='invalid-feedback'>El usuario ya existe</div>";
+          $valid = false;
+        }
+
+        if ($_POST["pass"] != $_POST["pass2"]) {
+          echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
+          $valid = false;
+        }
+
+        if (empty($_POST["uname"])) {
+            $valid = false;
+        }
+
+        if (empty($_POST["pass"])) {
+            $valid = false;
+        }
+
+        if (empty($_POST["pass2"])) {
+            $valid = false;
+        }
+
+        if ($valid) {
+          echo "Tu usuario se ha creado correctamente. Ve a crear dominio para crear tu dominio.";
+          $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
+          $user_result = mysqli_query($connection, $user_query);
+          exit();
+        }
+      }
+
+      ?>
+
       <form action="" class="was-validated" method="post">
   <div class="row justify-content-center align-items-center align-items-center align-items-center">
     <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
