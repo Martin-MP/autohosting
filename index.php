@@ -39,7 +39,7 @@
   <div class="container-fluid">
     <h1>Bienvenido a Mugueta Brothers</h1>
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-12">
         <a class="btn btn-primary btn-lg btn-block" href="html/register.php">Crear Cuenta</a>
         <a class="btn btn-secondary btn-lg btn-block" href="html/domain.php">Crear Dominio</a>
         <a class="btn btn-info btn-lg btn-block" href="html/domainlist.html">Dominios</a>
