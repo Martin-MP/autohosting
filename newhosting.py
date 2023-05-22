@@ -18,7 +18,7 @@ def create_user(username, password):
 
 
 def set_password(username, password):
-    os.system(f'changepass.sh -u {username} -p {password}')
+    os.system(f'./changepass.sh -u {username} -p {password}')
 
 
 def create_directory(username, domain):
