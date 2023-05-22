@@ -38,6 +38,10 @@
             <h2 class="container text-center Grande my-5">Crea un dominio</h2>
 
             <?php
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+            
             $valid = true;
             $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
             if (!$connection) {
@@ -56,12 +60,24 @@
                 $user_invalid = true;
               }
               else {
-                $query_psw = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
-                $result_psw = mysqli_query($connection, $query_psw);
+                $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
+                $result = mysqli_query($connection, $query);
                 if (mysqli_num_rows($result) < 1) {
                   $valid = false;
                   $pass_invalid = true;
                 } 
+              }
+
+              $query = "SELECT * FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["domain"]) . "'";
+              $result = mysqli_query($connection, $query);
+              if (mysqli_num_rows($result) > 0) {
+                $valid = false;
+                $domain_invalid = true;
+              }
+
+              if (!ctype_alnum($_POST["domain"])) {
+                $valid = false;
+                $domain_notalphanumeric = true;
               }
 
               if (empty($_POST["uname"])) {
@@ -77,14 +93,13 @@
               }
 
               if ($valid) {
-                echo "<p>Tu dominio se está creando... Pronto serás redirigido.</p>";
-                $user_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["domain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "')";
-                $user_result = mysqli_query($connection, $user_query);
+                echo "<p>Estamos haciendo todo lo necesario para crear tu nuevo dominio. ¡Pronto serás redirigido a su página principal!</p>";
+                $domain_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["domain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "')";
+                $domain_result = mysqli_query($connection, $domain_query);
                 exit();
               }        
             }
             ?>
-
          </div>
         </div>
       </div>
@@ -126,6 +141,16 @@
         <input type="text" class="form-control" id="domain" placeholder="Este campo solo debe contener caracteres alfanuméricos, sin mayúsculas" name="domain" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+
+        <?php
+        if ($domain_invalid) {
+          echo "<div class='invalid-feedback'>Otro dominio con el mismo nombre ya existe</div>";
+        }
+        if ($domain_notalphanumeric) {
+          echo "<div class='invalid-feedback'>El nombre del dominio tiene un formato inválido</div>";
+        }
+        ?>
+
       </div>
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
