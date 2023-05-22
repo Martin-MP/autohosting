@@ -64,7 +64,7 @@
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
       </div>
       </div>
-      <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
+      <div class="form-check mb-3 col-md-4 justify-content-center align-items-center align-items-center align-items-center">
       </div class="justify-content-center align-items-center align-items-center align-items-center">
       <button type="submit" class="btn btn-primary">¡Muestra!</button>
   </div>
@@ -83,7 +83,7 @@
           exit;
           }
           ?>
-          
+
         </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
