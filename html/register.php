@@ -1,6 +1,5 @@
 <?php
 $valid = true;
-echo $valid;
 $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
 if (!$connection) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -56,12 +55,11 @@ if (!$connection) {
     <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
       <div class="mb-3 mt-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
+        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
         <?php
-        echo $valid;
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["user"]) . "'";
           $result = mysqli_query($connection, $query);
@@ -121,7 +119,7 @@ if (!$connection) {
           echo $valid;
           if ($valid) {
             header('location:/post.php');
-            $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["user"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
+            $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
             $user_result = mysqli_query($connection, $user_query);
           }
         }
