@@ -38,6 +38,15 @@
             <h2 class="container text-center Grande my-5">Crea un dominio</h2>
 
             <?php
+            $valid = true;
+            $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
+            if (!$connection) {
+              echo "Error: Unable to connect to MySQL." . PHP_EOL;
+              echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+              header('location:erestonto.php');
+            exit;
+            }
+            
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
               $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
@@ -48,8 +57,8 @@
                 $user_invalid = true;
               }
               else {
-                $query_psw = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
-                $result_psw = mysqli_query($connection, $query);
+                $query_psw = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
+                $result_psw = mysqli_query($connection, $query_psw);
                 echo $result_psw;
                 if (mysqli_num_rows($result) < 1) {
                   $valid = false;
