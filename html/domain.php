@@ -50,7 +50,8 @@ if (!$connection) {
          </div>
         </div>
       </div>
-      <form action="" class="was-validated" method="post">
+
+<form action="" class="was-validated" method="post">
   <div class="row justify-content-center align-items-center align-items-center align-items-center">
     <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
       <div class="mb-3 mt-3 justify-content-center align-items-center align-items-center align-items-center">
@@ -79,12 +80,10 @@ if (!$connection) {
         <div class="valid-feedback">Válido</div>
         <div class="invalid-feedback">Marca esta opción para avanzar.</div>
       </div class="justify-content-center align-items-center align-items-center align-items-center">
-      <button type="submit" class="btn btn-primary">Aceptar</button>
+      <button type="submit" class="btn btn-primary">¡Crea!</button>
     </div>
   </div>
-
-        
-      </form>
+</form>
       <div class="row justify-content-center align-items-center align-items-center align-items-center">
         <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
           <p>¿Ya tienes cuenta? Inicia sesión.</p>
