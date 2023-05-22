@@ -23,7 +23,7 @@ if (!$connection) {
    <body>
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
          <div class="container-fluid">
-            <a class="mugetabrothers" href="../index.html"> <img class="mugetabrothers" src="../images/muguetabrothers.png"
+            <a class="mugetabrothers" href="../index.php"> <img class="mugetabrothers" src="../images/muguetabrothers.png"
                alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@ if (!$connection) {
             </div>
          </div>
       </nav>
-      <div class="container-fluid col-sm-12 col-md-4"">
+      <div class="container-fluid col-sm-4 col-md-4">
         <div class="row">
          <div>
             <h2 class="container text-center Grande my-5">Registrate</h2>
@@ -52,10 +52,10 @@ if (!$connection) {
       </div>
       <form action="" class="was-validated" method="post">
   <div class="row justify-content-center align-items-center align-items-center align-items-center">
-    <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
+    <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
       <div class="mb-3 mt-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
+        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
@@ -119,7 +119,7 @@ if (!$connection) {
           echo $valid;
           if ($valid) {
             header('location:/post.php');
-            $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["user"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
+            $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
             $user_result = mysqli_query($connection, $user_query);
           }
         }
