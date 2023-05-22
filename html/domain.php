@@ -63,7 +63,7 @@
                   $valid = false;
               }
 
-              if (empty($_POST["pass2"])) {
+              if (empty($_POST["domain"])) {
                   $valid = false;
               }
 
@@ -85,14 +85,7 @@
     <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
       <div class="mb-3 mt-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Usuario:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
-        <div class="valid-feedback">Válido.</div>
-        <div class="invalid-feedback">Por favor, rellena este apartado.</div>
-
-      </div>
-      <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
-        <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Password:</label>
-        <input type="password" class="form-control" id="pass" placeholder="Enter password" name="pass" required>
+        <input type="text" class="form-control" id="uname" placeholder="Introduce Usuario" name="uname" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
@@ -107,8 +100,8 @@
 
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
-        <label style="font-family: Rubik Mono One;" for="domain" class="form-label">Pon un dominio:</label>
-        <input type="password" class="form-control" id="domain" placeholder="Este campo solo debe contener caracteres alfanuméricos, sin mayúsculas" name="domain" required>
+        <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" id="pass" placeholder="Introduce Contraseña" name="pass" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
@@ -118,6 +111,12 @@
         }
         ?>
 
+      </div>
+      <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
+        <label style="font-family: Rubik Mono One;" for="domain" class="form-label">Pon un dominio:</label>
+        <input type="text" class="form-control" id="domain" placeholder="Este campo solo debe contener caracteres alfanuméricos, sin mayúsculas" name="domain" required>
+        <div class="valid-feedback">Válido.</div>
+        <div class="invalid-feedback">Por favor, rellena este apartado.</div>
       </div>
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
