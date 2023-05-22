@@ -32,6 +32,10 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 50px;
 }
+.Grande2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+}
 .margintop {
   margin-top: 40px;
 }
@@ -59,8 +63,8 @@ h1 {
   margin-bottom: 20px;
 }
 .pequenyo{
-  min-height: 40vw;
-  max-height: 40vw;
+  min-height: 38vw;
+  max-height: 38vw;
 }
 .menosmargin {
   margin-top: 0px;
