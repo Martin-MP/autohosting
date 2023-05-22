@@ -56,12 +56,10 @@
         $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
         $result = mysqli_query($connection, $query);
         if (mysqli_num_rows($result) > 0) {
-          echo "<div class='invalid-feedback'>El usuario ya existe</div>";
           $valid = false;
         }
 
         if ($_POST["pass"] != $_POST["pass2"]) {
-          echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
           $valid = false;
         }
 
@@ -95,6 +93,13 @@
         <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+      
+        <?php
+        if (mysqli_num_rows($result) > 0) {
+          echo "<div class='invalid-feedback'>El usuario ya existe</div>";
+        }
+        ?>
+
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Password:</label>
@@ -107,6 +112,13 @@
         <input type="password" class="form-control" id="pass2" placeholder="Enter password" name="pass2" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+
+        <?php
+        if ($_POST["pass"] != $_POST["pass2"]) {
+          echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
+        }
+        ?>
+
       </div>
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
