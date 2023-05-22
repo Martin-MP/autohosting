@@ -24,7 +24,7 @@
 </head>
 <body>
   <div id="video-container">
-    <video src="../images/rickroll.mp4" autoplay loop muted></video>
+    <video src="../images/rickroll.mp4" autoplay loop></video>
   </div>
 </body>
 </html>
