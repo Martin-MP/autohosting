@@ -23,7 +23,7 @@ if (!$connection) {
    <body>
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
          <div class="container-fluid">
-            <a class="mugetabrothers" href="../index.html"> <img class="mugetabrothers" src="../images/muguetabrothers.png"
+            <a class="mugetabrothers" href="../index.php"> <img class="mugetabrothers" src="../images/muguetabrothers.png"
                alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
