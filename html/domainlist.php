@@ -46,27 +46,22 @@
     <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
       <div class="mb-3 mt-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Usuario:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Introduce Usuario" name="uname" required>
+        <input type="text" class="form-control" id="uname" placeholder="Introduce un usuario" name="uname" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
-      
-        <?php
-        if (mysqli_num_rows($result) > 0) {
-          echo "<div class='invalid-feedback'>El usuario ya existe</div>";
-        }
-        ?>
 
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Contraseña:</label>
-        <input type="password" class="form-control" id="pass" placeholder="Introduce contraseña" name="pass" required>
+        <input type="password" class="form-control" id="pass" placeholder="Introduce una contraseña" name="pass" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
-      </div>
       </div>
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
       </div class="justify-content-center align-items-center align-items-center align-items-center">
       <button type="submit" class="btn btn-primary">¡Muestra!</button>
+    </div>
+      </div>
   </div>
       </form>
       <div class="row justify-content-center align-items-center align-items-center align-items-center">
