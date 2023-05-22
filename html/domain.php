@@ -46,7 +46,7 @@
               header('location:erestonto.php');
             exit;
             }
-            
+
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
               $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
@@ -59,7 +59,6 @@
               else {
                 $query_psw = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
                 $result_psw = mysqli_query($connection, $query_psw);
-                echo $result_psw;
                 if (mysqli_num_rows($result) < 1) {
                   $valid = false;
                   $pass_invalid = true;
