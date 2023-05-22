@@ -56,12 +56,19 @@
                 $user_invalid = true;
               }
               else {
-                $query_password = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
-                $result_password = mysqli_query($connection, $query_password);
-                if (mysqli_num_rows($result_password) < 1) {
+                $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
+                $result = mysqli_query($connection, $query);
+                if (mysqli_num_rows($result) < 1) {
                   $valid = false;
                   $pass_invalid = true;
                 } 
+              }
+
+              $query = "SELECT * FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["domain"]) . "'";
+              $result = mysqli_query($connection, $query);
+              if (mysqli_num_rows($result) > 0) {
+                $valid = false;
+                $domain_invalid = true;
               }
 
               if (empty($_POST["uname"])) {
@@ -77,7 +84,7 @@
               }
 
               if ($valid) {
-                echo "<p>Tu dominio se está creando... Pronto serás redirigido.</p>";
+                echo "<p>Estamos haciendo todo lo necesario para crear tu nuevo dominio. ¡Pronto serás redirigido a su página principal!</p>";
                 $domain_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["domain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "')";
                 $domain_result = mysqli_query($connection, $domain_query);
                 exit();
@@ -126,6 +133,13 @@
         <input type="text" class="form-control" id="domain" placeholder="Este campo solo debe contener caracteres alfanuméricos, sin mayúsculas" name="domain" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+
+        <?php
+        if ($domain_invalid) {
+          echo "<div class='invalid-feedback'>Otro dominio con el mismo nombre ya existe</div>";
+        }
+        ?>
+
       </div>
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
