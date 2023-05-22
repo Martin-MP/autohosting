@@ -17,7 +17,7 @@ class Database:
     def get_sub_domains(self, username):
         query = f"SELECT domain FROM domains WHERE user='{username}'"
         self.cursor.execute(query)
-        self.domains = cursor.fetchall()
+        self.domains = self.cursor.fetchall()
 
 
 def check_root():
