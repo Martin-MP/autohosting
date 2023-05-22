@@ -53,10 +53,12 @@
               $result = mysqli_query($connection, $query);
               if (mysqli_num_rows($result) > 0) {
                 $valid = false;
+                $user_invalid = true;
               }
 
               if ($_POST["pass"] != $_POST["pass2"]) {
                 $valid = false;
+                $pass_invalid = true;
               }
 
               if (empty($_POST["uname"])) {
@@ -93,7 +95,7 @@
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
       
         <?php
-        if (mysqli_num_rows($result) > 0) {
+        if ($user_invalid) {
           echo "<div class='invalid-feedback'>El usuario ya existe</div>";
         }
         ?>
@@ -112,7 +114,7 @@
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
         <?php
-        if ($_POST["pass"] != $_POST["pass2"]) {
+        if ($pass_invalid) {
           echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
         }
         ?>

@@ -64,13 +64,13 @@
       </div>
       </div>
       </div class="justify-content-center align-items-center align-items-center align-items-center">
-      <button type="submit" class="btn btn-primary">¡Muestra!</button>
     </div>
   </div>
       </form>
       <div class="row justify-content-center align-items-center align-items-center align-items-center">
         <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
-          <p>PONER AQUÍ LISTA O LO QUE SEA</p>
+        <button type="submit" class="btn btn-primary">¡Muestra!</button>  
+        <p>PONER AQUÍ LISTA O LO QUE SEA</p>
         </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
