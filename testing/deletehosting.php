@@ -5,8 +5,6 @@ $password = "alumnat";
 $database = "autohosting_db";
 $connection = mysqli_connect($host, $user, $password, $database);
 $processUser = posix_getpwuid(posix_geteuid());
-echo "WHOAMI:";
-echo shell_exec("whoami");
 $processUser = $processUser['name'];
 echo "Process user: " . $processUser . "<br>";
 if (!$connection) {
@@ -20,12 +18,10 @@ if (!$connection) {
         <form action="" method="post">
             Username: <input type="text" name="username"><br>
             Password: <input type="text" name="password"><br>
-            Confirm password: <input type="text" name="password_confirmation"><br>
-            Subdomain: <input type="text" name="subdomain"><br>
+            Subdomain to delete: <input type="text" name="subdomain"><br>
             <input type="submit">
             <br>
             <?php
-            // check if any field is empty and print an error message
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $valid = true;
                 if (empty($_POST["username"])) {
@@ -35,8 +31,8 @@ if (!$connection) {
                 else {
                     $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["username"]) . "'";
                     $result = mysqli_query($connection, $query);
-                    if (mysqli_num_rows($result) > 0) {
-                        echo "Username already exists<br>";
+                    if (mysqli_num_rows($result) < 1) {
+                        echo "Username doesn't exist<br>";
                         $valid = false;
                     }
                 }
@@ -44,36 +40,32 @@ if (!$connection) {
                     echo "Password is required<br>";
                     $valid = false;
                 }
-                if (empty($_POST["password_confirmation"])) {
-                    echo "Password confirmation is required<br>";
-                    $valid = false;
-                }
-                if (!empty($_POST["password"]) && !empty($_POST["password_confirmation"]) && $_POST["password"] != $_POST["password_confirmation"]) {
-                    echo "Passwords do not match<br>";
-                    $valid = false;
+                else {
+                    $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["username"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["password"]) . "'";
+                    $result = mysqli_query($connection, $query);
+                    if (mysqli_num_rows($result) < 1) {
+                        echo "Password is incorrect<br>";
+                        $valid = false;
+                    }
                 }
                 if (empty($_POST["subdomain"])) {
                     echo "Subdomain is required<br>";
                     $valid = false;
                 }
                 else {
-                    $query = "SELECT * FROM domains WHERE name = '" . mysqli_real_escape_string($connection, $_POST["subdomain"]) . "'";
+                    $query = "SELECT * FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["subdomain"]) . "'";
                     $result = mysqli_query($connection, $query);
-                    if (mysqli_num_rows($result) > 0) {
-                        echo "Subdomain already exists<br>";
+                    if (mysqli_num_rows($result) < 1) {
+                        echo "Subdomain doesn't exist<br>";
                         $valid = false;
                     }
                 }
                 if ($valid) {
-                    $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["username"]) . "', '" . mysqli_real_escape_string($connection, $_POST["password"]) . "')";
-                    $user_result = mysqli_query($connection, $user_query);
-                    $domain_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["subdomain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["username"]) . "')";
+                    $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["subdomain"]) . "'";
                     $domain_result = mysqli_query($connection, $domain_query);
-                    echo "User query: " . $user_query . "<br>";
                     echo "Domain query: " . $domain_query . "<br>";
-                    echo "User result: " . $user_result . "<br>";
                     echo "Domain result: " . $domain_result . "<br>";
-                    $command = "sudo -n python3 /srv/autohosting/newhosting.py -u " . $_POST["username"] . " -d " . $_POST["subdomain"] . " -p " . $_POST["password"] .  " 2>&1";
+                    $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $_POST["username"] . " -d " . $_POST["subdomain"] . " 2>&1";
                     $output = shell_exec($command);
                     echo "Command: " . $command . "<br>";
                     echo "Output: " . $output . "<br>";
