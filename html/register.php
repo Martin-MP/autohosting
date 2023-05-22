@@ -69,12 +69,11 @@ if (!$connection) {
           }
         }
         ?>
-
+      </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Password:</label>
         <input type="password" class="form-control" id="pass" placeholder="Enter password" name="pass" required>
         <div class="valid-feedback">Válido.</div>
-        <div class="invalid-feedback">Por favor, rellena este apartado.</div>
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass2" class="form-label">Confirm password:</label>
@@ -127,6 +126,10 @@ if (!$connection) {
           sesión</button>
         </div>
       </div>
+
+      <button type="submit" class="btn btn-primary" onclick="window.location.href = '../index.html';">Inicia
+          sesión</button>
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
    </body>
 </html>
