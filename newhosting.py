@@ -13,19 +13,12 @@ def check_root():
 def create_user(username, password):
     commands = [
         f'useradd -g clients -s /bin/bash -m {username}',
-        #f'echo -e "{password}\n{password}" | passwd {username} --stdin'
     ]
     return [os.system(command) for command in commands]
 
 
 def set_password(username, password):
-    proc = Popen(["passwd", username], stdin=PIPE, stdout=PIPE, stderr=PIPE)
-    proc.stdin.write(f"{password}\n")
-    proc.stdin.write(password)
-    proc.stdin.flush()
-    stdout, stderr = proc.communicate()
-    print(stdout)
-    print(stderr)
+    os.system(f'changepass.sh -u {username} -p {password}')
 
 
 def create_directory(username, domain):
