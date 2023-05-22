@@ -53,7 +53,7 @@
         <div class="invalid-feedback">Porfavor, rellena este apartado.</div>
       </div>
       <div class="row mb-3 mt-3">
-      <button type="submit" class="btn btn-primary">Inicia sesión</button>
+      <button type="submit" class="btn btn-primary margintop">Inicia sesión</button>
     </form>       
     <a class="btn btn-secondary" href="html/register.html">Registrate</a>    </div>
 
@@ -61,7 +61,7 @@
   <div class="container-fluid center">
     <div class="row center">
       <div class="col-sm-12 col-md-12 center">
-        <img class="center" src="images/muguetabrothers.png" alt="Mugueta">
+        <img class="center" src="../images/muguetabrothers.png" alt="Mugueta">
       </div>
     </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
