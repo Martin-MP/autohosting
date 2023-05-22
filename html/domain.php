@@ -56,8 +56,8 @@
                 $user_invalid = true;
               }
               else {
-                $query_psw = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
-                $result_psw = mysqli_query($connection, $query);
+                $query_psw = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
+                $result_psw = mysqli_query($connection, $query_psw);
                 if (mysqli_num_rows($result) < 1) {
                   $valid = false;
                   $pass_invalid = true;
@@ -72,7 +72,7 @@
                   $valid = false;
               }
 
-              if (empty($_POST["pass2"])) {
+              if (empty($_POST["domain"])) {
                   $valid = false;
               }
 
@@ -93,24 +93,39 @@
   <div class="row justify-content-center align-items-center align-items-center align-items-center">
     <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
       <div class="mb-3 mt-3 justify-content-center align-items-center align-items-center align-items-center">
-        <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+        <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Usuario:</label>
+        <input type="text" class="form-control" id="uname" placeholder="Introduce Usuario" name="uname" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
+        <?php
+        if ($user_invalid) {
+          echo "<div class='invalid-feedback'>El usuario no existe</div>";
+        }
+        if ($pass_invalid) {
+          echo "<div class='invalid-feedback'>El usuario o la contraseña no son correctos</div>";
+        }
+        ?>
+
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
-        <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Password:</label>
-        <input type="password" class="form-control" id="pass" placeholder="Enter password" name="pass" required>
+        <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" id="pass" placeholder="Introduce Contraseña" name="pass" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+
+        <?php
+        if ($pass_invalid) {
+          echo "<div class='invalid-feedback'>El usuario o la contraseña no son correctos</div>";
+        }
+        ?>
+
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="domain" class="form-label">Pon un dominio:</label>
-        <input type="password" class="form-control" id="domain" placeholder="Este campo solo debe contener caracteres alfanuméricos, sin mayúsculas" name="domain" required>
+        <input type="text" class="form-control" id="domain" placeholder="Este campo solo debe contener caracteres alfanuméricos, sin mayúsculas" name="domain" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
-
       </div>
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
