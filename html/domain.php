@@ -71,6 +71,11 @@
                 $domain_invalid = true;
               }
 
+              if (ctype_alnum(string($_POST["domain"])) = false) {
+                $valid = false;
+                $domain_notalphanumeric = true;
+              }
+
               if (empty($_POST["uname"])) {
                   $valid = false;
               }
