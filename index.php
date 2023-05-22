@@ -38,15 +38,65 @@
 
   <div class="container-fluid">
     <h1>Bienvenido a Mugueta Brothers</h1>
+<!-- Aquí tendremos una barra negra debajo de nuestra barra de búsqueda, simplemente es para que quede mejor esteticamente -->
+<div class="container-fluid">
+  <div class="row">
+     <!-- Carousel -->
+     <div id="demo" class="carousel slide col-sm-12 col-md-10" data-bs-ride="carousel">
+       <!-- col 10 para que luego salgan las página relacionadas
+       y el col-sm-12 hace que en el movil ocupe todo y lo de relacionadas
+       se baja hacia abajo -->
+        <!-- Indicadores/Flechas -->
+        <div class="carousel-indicators">
+           <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+           <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+           <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+        <!-- El carousel -->
+        <div class="carousel-inner">
+           <div class="carousel-item active">
+              <img src="images/gokudrip.jpg" alt="Goku" class="d-block w-100 pequenyo">
+           </div>
+           <div class="carousel-item">
+              <img src="images/muguetabrothers.png" alt="Mugueta" class="d-block w-100 pequenyo">
+           </div>
+           <div class="carousel-item">
+              <img src="images/kirbydrip.jpeg" alt="Kirby" class="d-block w-100 pequenyo">
+           </div>
+        </div>
+        <!-- Los iconos de las flechas -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        </button>
+     </div>
+     <div class="col-md-2 col-sm-12">
+        <!-- El col-md 2 es para imagenes medianas de ahí el medium (md) y col-sm-5 es para imagenes pequeñas o small (sm) -->
+        <div class="">
+          <a class="btn btn-primary btn-lg btn-block" href="html/register.php">Crear Cuenta</a>
+        </div>
+        <div class="clanbajo centrado">
+          <a class="btn btn-info btn-lg btn-block" href="html/domainlist.html">Listado Dominios</a>
+          <!-- Logo del clan, cuando clicas te redirecciona a la pagina ofcial de clan -->
+        </div>
+        <div class="disneybajo">
+          <a class="btn btn-secondary btn-lg btn-block" href="html/domain.php">Crear Dominio</a>
+          <!-- Logo de disney channel, cuando clicas te redirecciona a la pagina oficial de disney channel -->
+        </div>
+     </div>
+  </div>
+</div>
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-12">
         <a class="btn btn-primary btn-lg btn-block" href="html/register.php">Crear Cuenta</a>
         <a class="btn btn-secondary btn-lg btn-block" href="html/domain.php">Crear Dominio</a>
-        <a class="btn btn-info btn-lg btn-block" href="html/domainlist.html">Dominios</a>
+        <a class="btn btn-info btn-lg btn-block" href="html/domainlist.html">Listado Dominios</a>
       </div>
     </div>
   </div>
-
+  <div> <img src="images/muguetabrothers.png" alt=""></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
