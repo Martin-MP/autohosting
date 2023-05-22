@@ -1,5 +1,6 @@
 <?php
 $valid = true;
+echo $valid;
 $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
 if (!$connection) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -43,7 +44,7 @@ if (!$connection) {
             </div>
          </div>
       </nav>
-      <div class="container-fluid col-sm-10 col-md-4">
+      <div class="container-fluid col-sm-4 col-md-4">
         <div class="row">
          <div>
             <h2 class="container text-center Grande my-5">Registrate</h2>
