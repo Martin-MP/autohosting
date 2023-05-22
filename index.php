@@ -89,8 +89,11 @@
   </div>
 </div>
 </div>
-  <div class="">
-    <div> <img src="images/muguetabrothers.png" alt=""></div>
+  <div class="container-fluid">
+    <div class="col-md-4">
+  </div>
+    <div class="col-md-4"> <img src="images/muguetabrothers.png" alt="">
+    </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
