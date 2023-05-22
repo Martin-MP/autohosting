@@ -53,11 +53,10 @@
         <div class="invalid-feedback">Porfavor, rellena este apartado.</div>
       </div>
       <div class="row mb-3 mt-3">
-        <div class="row mb-3 mt-3">
+        <div class="row">
       <button type="submit" class="btn btn-primary">Inicia sesión</button> </div>
     </form>       
-    <a class="btn btn-secondary" href="html/register.html">Registrate</a>    </div>
-
+<div class="row"> <a class="btn btn-secondary" href="html/register.html">Registrate</a>    </div>
   </div>
   <div class="container-fluid center">
     <div class="row center">
