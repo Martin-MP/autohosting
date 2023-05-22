@@ -78,11 +78,11 @@
           <a class="btn btn-primary btn-lg btn-block" href="html/register.php">Crear Cuenta</a>
         </div>
         <div class="clanbajo centrado">
-          <a class="btn btn-info btn-lg btn-block" href="html/domainlist.html">Listado Dominios</a>
+          <a class="btn btn-primary btn-lg btn-block" href="html/domainlist.html">Listado Dominios</a>
           <!-- Logo del clan, cuando clicas te redirecciona a la pagina ofcial de clan -->
         </div>
         <div class="disneybajo">
-          <a class="btn btn-secondary btn-lg btn-block" href="html/domain.php">Crear Dominio</a>
+          <a class="btn btn-primary btn-lg btn-block" href="html/domain.php">Crear Dominio</a>
           <!-- Logo de disney channel, cuando clicas te redirecciona a la pagina oficial de disney channel -->
         </div>
      </div>
