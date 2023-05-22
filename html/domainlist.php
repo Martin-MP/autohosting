@@ -32,11 +32,12 @@
       </div>
     </div>
   </nav>
+
       <div class="container-fluid col-sm-4 col-md-4">
         <div class="row">
          <div>
             <h2 class="container text-center Grande my-5">Ver Dominios</h2>
-            <h3 class="container text-center Grande my-5">Has de Iniciar sesión</h2>
+            <h3 class="container text-center Grande2 my-5">Has de Iniciar sesión</h2>
          </div>
         </div>
       </div>
@@ -58,19 +59,31 @@
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Contraseña:</label>
-        <input type="password" class="form-control" id="pass" placeholder="Introduce Contraseña" name="pass" required>
+        <input type="password" class="form-control" id="pass" placeholder="Introduce contraseña" name="pass" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
       </div>
       </div>
+      <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
       </div class="justify-content-center align-items-center align-items-center align-items-center">
-    </div>
+      <button type="submit" class="btn btn-primary">¡Muestra!</button>
   </div>
       </form>
       <div class="row justify-content-center align-items-center align-items-center align-items-center">
         <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
-        <button type="submit" class="btn btn-primary">¡Muestra!</button>  
-        <p>PONER AQUÍ LISTA O LO QUE SEA</p>
+          <p>PONER AQUÍ LISTA O LO QUE SEA</p>
+
+          <?php
+          $valid = true;
+          $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
+          if (!$connection) {
+            echo "Error: Unable to connect to MySQL." . PHP_EOL;
+            echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+            header('location:erestonto.php');
+          exit;
+          }
+          ?>
+          
         </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
