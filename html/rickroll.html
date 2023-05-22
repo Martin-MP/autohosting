@@ -6,32 +6,31 @@
     body {
       margin: 0;
       padding: 0;
+      overflow: hidden;
     }
     #video-container {
       width: 100vw;
       height: 100vh;
-      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
     #video-container video {
       width: 100%;
-      height: auto;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
-  <td>
-  <video controls>
-    <source  src="../images/rickroll.mp4" type="video/mp4">
-    <source src="../images/rickroll.mp4" type="video/mp4">
-    <!-- la ruta donde está el video -->
-    Your browser does not support the video tag.
-    <!-- por si no va te sale eso -->
- </video>
-</td>
-<h1>hola</h1>
+  <div id="video-container">
+    <video autoplay loop>
+      <source src="../images/rickroll.mp4" type="video/mp4">
+      <!-- la ruta donde está el video -->
+      Your browser does not support the video tag.
+      <!-- por si no va te sale eso -->
+    </video>
+  </div>
+  <h1>hola</h1>
 </body>
 </html>
