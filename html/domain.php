@@ -53,9 +53,6 @@
         <div class="invalid-feedback">Porfavor, rellena este apartado.</div>
       </div>
       <div class="row mb-3 mt-3">
-        <div class row>
-
-        </div>
         <div class="row mb-3 mt-3">
       <button type="submit" class="btn btn-primary">Inicia sesión</button> </div>
     </form>       
