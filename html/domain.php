@@ -58,6 +58,7 @@
               else {
                 $query_password = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
                 $result_password = mysqli_query($connection, $query_psw);
+                echo $query_password;
                 if (mysqli_num_rows($result_password) < 1) {
                   $valid = false;
                   $pass_invalid = true;
@@ -78,8 +79,8 @@
 
               if ($valid) {
                 echo "<p>Tu dominio se está creando... Pronto serás redirigido.</p>";
-                $user_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["domain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "')";
-                $user_result = mysqli_query($connection, $user_query);
+                $domain_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["domain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "')";
+                $domain_result = mysqli_query($connection, $domain_query);
                 exit();
               }        
             }
