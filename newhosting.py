@@ -1,6 +1,5 @@
 import os
 import argparse
-import subprocess
 
 
 def check_root():
