@@ -1,4 +1,3 @@
-// make a filter that checks if the database is accessible
 <?php
 $host = "localhost";
 $user = "php";
@@ -24,10 +23,6 @@ if (!$connection) {
             // check if any field is empty and print an error message
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $valid = true;
-                if ($_POST["password"] != $_POST["password_confirmation"]) {
-                    echo "Passwords do not match<br>";
-                    $valid = false;
-                }
                 if (empty($_POST["username"])) {
                     echo "Username is required<br>";
                     $valid = false;
@@ -48,6 +43,10 @@ if (!$connection) {
                     echo "Password confirmation is required<br>";
                     $valid = false;
                 }
+                if (!empty($_POST["password"]) && !empty($_POST["password_confirmation"]) && $_POST["password"] != $_POST["password_confirmation"]) {
+                    echo "Passwords do not match<br>";
+                    $valid = false;
+                }
                 if (empty($_POST["subdomain"])) {
                     echo "Subdomain is required<br>";
                     $valid = false;
@@ -61,11 +60,14 @@ if (!$connection) {
                     }
                 }
                 if ($valid) {
-                    $query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["username"]) . "', '" . mysqli_real_escape_string($connection, $_POST["password"]) . "')";
-                    mysqli_query($connection, $query);
-                    $query = "INSERT INTO domains (name, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["subdomain"]) . "', " . mysqli_insert_id($connection) . ")";
-                    mysqli_query($connection, $query);
-                    echo "User created successfully<br>";
+                    $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["username"]) . "', '" . mysqli_real_escape_string($connection, $_POST["password"]) . "')";
+                    $user_result = mysqli_query($connection, $user_query);
+                    $domain_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["subdomain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["username"]) . "')";
+                    $domain_result = mysqli_query($connection, $domain_query);
+                    echo "User query: " . $user_query . "<br>";
+                    echo "Domain query: " . $domain_query . "<br>";
+                    echo "User result: " . $user_result . "<br>";
+                    echo "Domain result: " . $domain_result . "<br>";
                 }
             }
             ?>
