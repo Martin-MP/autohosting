@@ -72,5 +72,5 @@ parser.add_argument('-p', '--password', type=str, required=True, help='Password'
 args = parser.parse_args()
 create_user(args.username, args.password)
 set_password(args.username, args.password)
-#create_directory(args.username, args.domain)
-#apache(args.username, args.domain)
+create_directory(args.username, args.domain)
+apache(args.username, args.domain)
