@@ -4,6 +4,9 @@ $user = "php";
 $password = "alumnat";
 $database = "autohosting_db";
 $connection = mysqli_connect($host, $user, $password, $database);
+$processUser = posix_getpwuid(posix_geteuid());
+$processUser = $processUser['name'];
+echo "Process user: " . $processUser . "<br>";
 if (!$connection) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
