@@ -77,8 +77,8 @@
               }
 
               if ($valid) {
-                echo "<p>Tu usuario se ha creado correctamente. Ve a crear dominio para crear tu dominio.</p>";
-                $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
+                echo "<p>Tu dominio se está creando... Pronto serás redirigido.</p>";
+                $user_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["domain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "')";
                 $user_result = mysqli_query($connection, $user_query);
                 exit();
               }        
