@@ -61,17 +61,14 @@ if (!$connection) {
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["user"]) . "'";
+          $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
           $result = mysqli_query($connection, $query);
-          echo "User existing query: " . $query . "<br>";
-          echo "User existing result: " . $result . "<br>";
           if (mysqli_num_rows($result) > 0) {
             echo "<div class='invalid-feedback'>El usuario ya existe</div>";
             $valid = false;
           }
         }
         ?>
-
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Password:</label>
@@ -119,8 +116,6 @@ if (!$connection) {
           if ($valid) {
             $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
             $user_result = mysqli_query($connection, $user_query);
-            echo "User query: " . $user_query . "<br>";
-            echo "User result: " . $user_result . "<br>";
           }
         }
         ?>
