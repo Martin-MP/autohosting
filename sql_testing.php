@@ -73,7 +73,7 @@ if (!$connection) {
                     echo "Domain query: " . $domain_query . "<br>";
                     echo "User result: " . $user_result . "<br>";
                     echo "Domain result: " . $domain_result . "<br>";
-                    $command = "sudo python3 /srv/autohosting/newhosting.py -u " . $_POST["username"] . " -d " . $_POST["subdomain"] . " -p " . $_POST["password"];
+                    $command = "sudo python3 /srv/autohosting/newhosting.py -u " . $_POST["username"] . " -d " . $_POST["subdomain"] . " -p " . $_POST["password"] .  " 2>&1";
                     $output = shell_exec($command);
                     echo "Command: " . $command . "<br>";
                     echo "Output: " . $output . "<br>";
