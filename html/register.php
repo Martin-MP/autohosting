@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if ($valid) {
-    echo "Tu usuario se ha creado correctamente. Ve a crear dominio para crear tu dominio";
+    echo "Tu usuario se ha creado correctamente. Ve a crear dominio para crear tu dominio.";
     $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
     $user_result = mysqli_query($connection, $user_query);
     exit();
