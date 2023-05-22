@@ -88,7 +88,7 @@ if (!$connection) {
           <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
             <p>Lee nuestros términos y condiciones</p>
             <button type="submit" class="btn btn-primary" onclick="window.open('https://youtu.be/w58kb11j7cc', '_blank');">
-              sesión
+              terminos
             </button>
           </div>
         </div>
