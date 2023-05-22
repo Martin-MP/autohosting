@@ -31,7 +31,7 @@ if (!$connection) {
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                <ul class="navbar-nav">
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Crear Cuenta</a>
+                     <a class="nav-link" href="register.php">Crear Cuenta</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="domain.php">Crear Dominio</a>
@@ -84,13 +84,14 @@ if (!$connection) {
     </div>
   </div>
 </form>
-      <div class="row justify-content-center align-items-center align-items-center align-items-center">
-        <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
-          <p>¿Ya tienes cuenta? Inicia sesión.</p>
-          <button type="submit" class="btn btn-primary" onclick="window.location.href = '../index.php';">Inicia
-          sesión</button>
+        <div class="row justify-content-center align-items-center align-items-center align-items-center">
+          <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
+            <p>Lee nuestros términos y condiciones</p>
+            <button type="submit" class="btn btn-primary" onclick="window.open('https://youtu.be/w58kb11j7cc', '_blank');">
+              sesión
+            </button>
+          </div>
         </div>
-      </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
    </body>
 </html>
