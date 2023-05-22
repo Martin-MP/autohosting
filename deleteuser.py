@@ -27,6 +27,14 @@ def check_root():
         exit(1)
 
 
+def delete_user():
+    commands = [
+        f"userdel -r {args.username}",
+        f"rm -rf /var/www/{args.username}",
+    ]
+    return [os.system(command) for command in commands]
+
+
 check_root()
 parser = argparse.ArgumentParser(description='Delete a user and all their subdomains')
 parser.add_argument('-u', '--username', help='Username', required=True)
@@ -39,4 +47,8 @@ autohosting_db = Database(
 )
 autohosting_db.get_sub_domains(args.username)
 for domain in autohosting_db.domains:
-    print(domain)
+    print(f"Deleting domain {domain} of user {args.username}")
+    os.system(f"python3 deletehosting.py -u {args.username} -d {domain}")
+print(f"Deleting user {args.username}")
+delete_user()
+print(f"User {args.username} deleted successfully")
