@@ -64,7 +64,7 @@
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
       </div>
       </div>
-      <div class="form-check mb-3 col-md-4 justify-content-center align-items-center align-items-center align-items-center">
+      <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
       </div class="justify-content-center align-items-center align-items-center align-items-center">
       <button type="submit" class="btn btn-primary">¡Muestra!</button>
   </div>
