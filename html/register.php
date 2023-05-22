@@ -37,54 +37,53 @@
         <div class="row">
          <div>
             <h2 class="container text-center Grande my-5">Registrate</h2>
+
+            <?php
+            $valid = true;
+            $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
+            if (!$connection) {
+              echo "Error: Unable to connect to MySQL." . PHP_EOL;
+              echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+              header('location:erestonto.php');
+            exit;
+            }
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+              $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
+              $result = mysqli_query($connection, $query);
+              if (mysqli_num_rows($result) > 0) {
+                $valid = false;
+              }
+
+              if ($_POST["pass"] != $_POST["pass2"]) {
+                $valid = false;
+              }
+
+              if (empty($_POST["uname"])) {
+                  $valid = false;
+              }
+
+              if (empty($_POST["pass"])) {
+                  $valid = false;
+              }
+
+              if (empty($_POST["pass2"])) {
+                  $valid = false;
+              }
+
+              if ($valid) {
+                echo "<p>Tu usuario se ha creado correctamente. Ve a crear dominio para crear tu dominio.</p>";
+                $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
+                $user_result = mysqli_query($connection, $user_query);
+                exit();
+              }        
+            }
+            ?>
+
          </div>
         </div>
       </div>
-
-      <?php
-      $valid = true;
-      $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
-      if (!$connection) {
-        echo "Error: Unable to connect to MySQL." . PHP_EOL;
-        echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-        header('location:erestonto.php');
-      exit;
-      }
-
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
-        $result = mysqli_query($connection, $query);
-        if (mysqli_num_rows($result) > 0) {
-          $valid = false;
-        }
-
-        if ($_POST["pass"] != $_POST["pass2"]) {
-          $valid = false;
-        }
-
-        if (empty($_POST["uname"])) {
-            $valid = false;
-        }
-
-        if (empty($_POST["pass"])) {
-            $valid = false;
-        }
-
-        if (empty($_POST["pass2"])) {
-            $valid = false;
-        }
-
-        if ($valid) {
-          echo "<div class='col-md-4 col-sm-4'><center>Tu usuario se ha creado correctamente. Ve a crear dominio para crear tu dominio.</center></div>";
-          $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
-          $user_result = mysqli_query($connection, $user_query);
-          exit();
-        }        
-      }
-
-      ?>
-
       <form action="" class="was-validated" method="post">
   <div class="row justify-content-center align-items-center align-items-center align-items-center">
     <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
