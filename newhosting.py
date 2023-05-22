@@ -47,8 +47,8 @@ def apache(username, domain):
                 "</VirtualHost>\n" + \
                 "<VirtualHost *:443>\n" + \
                 "ServerAdmin admin@localhost\n" + \
-                f"ServerName {domain}\n" + \
-                f"ServerAlias www.{domain}\n" + \
+                f"ServerName {domain}.muguetabrothers.co.uk\n" + \
+                f"ServerAlias www.{domain}.muguetabrothers.co.uk\n" + \
                 f"DocumentRoot /var/www/{username}/{domain}/\n" + \
                 "ErrorLog ${APACHE_LOG_DIR}/error.log\n" + \
                 "CustomLog ${APACHE_LOG_DIR}/access.log combined\n" + \

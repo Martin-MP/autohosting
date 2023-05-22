@@ -5,6 +5,8 @@ $password = "alumnat";
 $database = "autohosting_db";
 $connection = mysqli_connect($host, $user, $password, $database);
 $processUser = posix_getpwuid(posix_geteuid());
+echo "WHOAMI:";
+echo shell_exec("whoami");
 $processUser = $processUser['name'];
 echo "Process user: " . $processUser . "<br>";
 if (!$connection) {
