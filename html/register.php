@@ -63,8 +63,6 @@ if (!$connection) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["user"]) . "'";
           $result = mysqli_query($connection, $query);
-          echo "<div class='invalid-feedback'>User existing query: " . $query . "</div>";
-          echo "<div class='invalid-feedback'>User existing result: " . $result . "</div>";
           if (mysqli_num_rows($result) > 0) {
             echo "<div class='invalid-feedback'>El usuario ya existe</div>";
             $valid = false;
