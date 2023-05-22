@@ -59,6 +59,6 @@ h1 {
   margin-bottom: 20px;
 }
 .pequenyo{
-  min-height: 40vw;
-  max-height: 40vw;
+  min-height: 200px;
+  max-height: 200px;
 }
