@@ -56,9 +56,9 @@
                 $user_invalid = true;
               }
               else {
-                $query_psw = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
-                $result_psw = mysqli_query($connection, $query_psw);
-                if (mysqli_num_rows($result) < 1) {
+                $query_password = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
+                $result_password = mysqli_query($connection, $query_psw);
+                if (mysqli_num_rows($result_password) < 1) {
                   $valid = false;
                   $pass_invalid = true;
                 } 
