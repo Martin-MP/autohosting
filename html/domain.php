@@ -71,6 +71,11 @@
                 $domain_invalid = true;
               }
 
+              if (ctype_alnum($_POST["domain"]) = false) {
+                $valid = false;
+                $domain_notalphanumeric = true;
+              }
+
               if (empty($_POST["uname"])) {
                   $valid = false;
               }
@@ -91,7 +96,6 @@
               }        
             }
             ?>
-
          </div>
         </div>
       </div>
@@ -137,6 +141,9 @@
         <?php
         if ($domain_invalid) {
           echo "<div class='invalid-feedback'>Otro dominio con el mismo nombre ya existe</div>";
+        }
+        if ($domain_notalphanumeric) {
+          echo "<div class='invalid-feedback'>El nombre del dominio tiene un formato inválido</div>";
         }
         ?>
 
