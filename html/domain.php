@@ -37,11 +37,7 @@
          <div>
             <h2 class="container text-center Grande my-5">Crea un dominio</h2>
 
-            <?php
-            ini_set('display_errors', 1);
-            ini_set('display_startup_errors', 1);
-            error_reporting(E_ALL);
-            
+            <?php            
             $valid = true;
             $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
             if (!$connection) {
