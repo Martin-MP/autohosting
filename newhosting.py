@@ -13,17 +13,12 @@ def check_root():
 def create_user(username, password):
     commands = [
         f'useradd -g clients -s /bin/bash -m {username}',
-        #f'echo -e "{password}\n{password}" | passwd {username} --stdin'
     ]
     return [os.system(command) for command in commands]
 
 
 def set_password(username, password):
-    try:
-        subprocess.run(f'echo -e "{password}\n{password}" | passwd {username} --stdin')
-        print('Password set successfully')
-    except exception as e:
-        print('Error setting password:', e)
+    os.system(f'./changepass.sh -u {username} -p {password}')
 
 
 def create_directory(username, domain):

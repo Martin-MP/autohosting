@@ -68,6 +68,8 @@ if (!$connection) {
                     echo "Domain query: " . $domain_query . "<br>";
                     echo "User result: " . $user_result . "<br>";
                     echo "Domain result: " . $domain_result . "<br>";
+                    $output = exec("python3 /srv/autohosting/newhosting.py -u " . $_POST["username"] . " -p " . $_POST["password"] . " -d " . $_POST["subdomain"]);
+                    echo "Output: " . $output . "<br>";
                 }
             }
             ?>
