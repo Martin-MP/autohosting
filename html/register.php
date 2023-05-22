@@ -7,6 +7,42 @@ if (!$connection) {
     header('location:erestonto.php');
     exit;
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
+  $result = mysqli_query($connection, $query);
+  if (mysqli_num_rows($result) > 0) {
+    echo "<div class='invalid-feedback'>El usuario ya existe</div>";
+    $valid = false;
+  }
+
+  if ($_POST["pass"] != $_POST["pass2"]) {
+    echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
+    $valid = false;
+  }
+
+  if (empty($_POST["uname"])) {
+      $valid = false;
+  }
+
+  if (empty($_POST["pass"])) {
+      $valid = false;
+  }
+
+  if (empty($_POST["pass2"])) {
+      $valid = false;
+  }
+
+  if ($valid) {
+    echo "Tu usuario se ha creado correctamente. Ve a crear dominio para crear tu dominio";
+    $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
+    $user_result = mysqli_query($connection, $user_query);
+    exit();
+  }
+}
+
+?>
 ?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
@@ -58,17 +94,6 @@ if (!$connection) {
         <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
-
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
-          $result = mysqli_query($connection, $query);
-          if (mysqli_num_rows($result) > 0) {
-            echo "<div class='invalid-feedback'>El usuario ya existe</div>";
-            $valid = false;
-          }
-        }
-        ?>
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Password:</label>
@@ -81,16 +106,6 @@ if (!$connection) {
         <input type="password" class="form-control" id="pass2" placeholder="Enter password" name="pass2" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
-
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          if ($_POST["pass"] != $_POST["pass2"]) {
-            echo "<div class='invalid-feedback'>Las contraseñas no coinciden</div>";
-            $valid = false;
-          }
-        }
-        ?>
-
       </div>
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
@@ -101,24 +116,6 @@ if (!$connection) {
       <button type="submit" class="btn btn-primary">Aceptar</button>
     </div>
   </div>
-
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          if (empty($_POST["uname"])) {
-              $valid = false;
-          }
-          if (empty($_POST["pass"])) {
-              $valid = false;
-          }
-          if (empty($_POST["pass2"])) {
-              $valid = false;
-          }
-          if ($valid) {
-            $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
-            $user_result = mysqli_query($connection, $user_query);
-          }
-        }
-        ?>
       </form>
       <div class="row justify-content-center align-items-center align-items-center align-items-center">
         <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
