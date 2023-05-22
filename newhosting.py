@@ -1,5 +1,6 @@
 import os
 import argparse
+import subprocess
 
 
 def check_root():
@@ -12,9 +13,17 @@ def check_root():
 def create_user(username, password):
     commands = [
         f'useradd -g clients -s /bin/bash -m {username}',
-        f'echo -e "{password}\n{password}" | passwd {username}'
+        #f'echo -e "{password}\n{password}" | passwd {username} --stdin'
     ]
     return [os.system(command) for command in commands]
+
+
+def set_password(username, password):
+    try:
+        subprocess.run(f'echo -e "{password}\n{password}" | passwd {username} --stdin')
+        print('Password set successfully')
+    except exception as e:
+        print('Error setting password:', e)
 
 
 def create_directory(username, domain):
@@ -37,9 +46,9 @@ def apache(username, domain):
         f"touch /etc/apache2/sites-available/{domain}.conf",
         "echo   '<VirtualHost *:80>\n" + \
                 "ServerAdmin webmaster@localhost\n" + \
-                f"ServerName {domain}\n" + \
-                f"ServerAlias www.{domain}\n" + \
-                f"Redirect / https://{domain}/\n" + \
+                f"ServerName {domain}.muguetabrothers.co.uk\n" + \
+                f"ServerAlias www.{domain}.muguetabrothers.co.uk\n" + \
+                f"Redirect / https://{domain}.muguetabrothers.co.uk/\n" + \
                 "</VirtualHost>\n" + \
                 "<VirtualHost *:443>\n" + \
                 "ServerAdmin admin@localhost\n" + \
@@ -67,5 +76,6 @@ parser.add_argument('-d', '--domain', type=str, required=True, help='Domain')
 parser.add_argument('-p', '--password', type=str, required=True, help='Password')
 args = parser.parse_args()
 create_user(args.username, args.password)
+set_password(args.username, args.password)
 create_directory(args.username, args.domain)
 apache(args.username, args.domain)
