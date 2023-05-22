@@ -19,11 +19,13 @@ def create_user(username, password):
 
 
 def set_password(username, password):
-    try:
-        subprocess.run(f'echo -e "{password}\n{password}" | passwd {username} --stdin')
-        print('Password set successfully')
-    except exception as e:
-        print('Error setting password:', e)
+    proc = Popen(["passwd", username], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    proc.stdin.write(f"{password}\n")
+    proc.stdin.write(password)
+    proc.stdin.flush()
+    stdout, stderr = proc.communicate()
+    print(stdout)
+    print(stderr)
 
 
 def create_directory(username, domain):
