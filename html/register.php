@@ -11,9 +11,9 @@
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
    </head>
    <body>
-   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark menosmargin">
     <div class="container-fluid menosmargin">
-      <a class="navbar-brand" href="../index.php"><img src="../images/muguetabrothers.png" alt="Logo"></a>
+      <a class="navbar-brand menosmargin" href="../index.php"><img src="images/muguetabrothers.png" alt="Logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
