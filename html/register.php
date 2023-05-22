@@ -53,7 +53,7 @@ if (!$connection) {
       </div>
       <form action="" class="was-validated" method="post">
   <div class="row justify-content-center align-items-center align-items-center align-items-center">
-    <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
+    <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
       <div class="mb-3 mt-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="uname" class="form-label">Username:</label>
         <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user" required>
@@ -61,6 +61,7 @@ if (!$connection) {
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
         <?php
+        echo $valid;
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["user"]) . "'";
           $result = mysqli_query($connection, $query);
