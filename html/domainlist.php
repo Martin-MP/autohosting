@@ -67,17 +67,12 @@
               $query = "SELECT domain FROM domains WHERE user = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
               $result = mysqli_query($connection, $query);
               if (mysqli_num_rows($result) > 0) {
-                echo "<table class='table table-hover justify-content-center align-items-center'>";
-                echo "<tbody>";
+                echo "<table class='table table-hover justify-content-center align-items-center'><tbody>";
                 while($row = mysqli_fetch_assoc($result)) {
-                  echo "<tr><td><p style='font-family: Rubik Mono One;'>";
-                  echo $row["domain"];
-                  echo "</p></td>";
-                  echo "<td><button type='submit' class='btn btn-danger'>Eliminar</button></td>";
-                  echo "</tr>";
+                  echo "<tr><td><p style='font-family: Rubik Mono One;'>" . $row["domain"] . "</p></td>";
+                  echo "<td><button type='submit' class='btn btn-danger'>Eliminar</button></td></tr>";
                 }
-                echo "</tbody>";
-                echo "</table>";
+                echo "</tbody></table>";
               }
               else {
                 echo "<p>No parece que tengas ningún sitio web. Crea uno.</p>";

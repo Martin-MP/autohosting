@@ -89,12 +89,18 @@
               }
 
               if ($valid) {
-                echo "<p>Estamos haciendo todo lo necesario para crear tu nuevo dominio. ¡Pronto serás redirigido a su página principal!</p>";
                 $domain_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["domain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "')";
                 $domain_result = mysqli_query($connection, $domain_query);
                 $command = "sudo -n python3 /srv/autohosting/newhosting.py -u " . $_POST["uname"] . " -d " . $_POST["domain"] . " -p " . $_POST["pass"];
                 exec($command, $output, $retval);
-                echo $retval . "<br>" . $output;
+                if ($retval = 0) {
+                  echo "<p>Estamos haciendo todo lo necesario para crear tu nuevo dominio. ¡Pronto serás redirigido a su página principal!</p>";
+                  sleep(3);
+                  header("Location:" . $_POST["domain"].".muguetabrothers.co.uk");
+                }
+                else {
+                  echo "<p>Ha ocurrido un error al crear el sitio web";
+                }
                 exit();
               }        
             }
