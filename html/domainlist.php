@@ -67,13 +67,12 @@
               $query = "SELECT domain FROM domains WHERE user = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
               $result = mysqli_query($connection, $query);
               if (mysqli_num_rows($result) > 0) {
-                echo "<table class='table'>";
+                echo "<table class='table justify-content-center'>";
                 echo "<tbody>";
                 while($row = mysqli_fetch_assoc($result)) {
-                  echo "<tr>";
-                  echo "<td>";
+                  echo "<tr><td><p style='font-family: Rubik Mono One;'>";
                   echo $row["domain"];
-                  echo "</td>";
+                  echo "</p></td>";
                   echo "<td><button type='submit' class='btn btn-danger'>Eliminar este dominio</button></td>";
                   echo "</tr>";
                 }
