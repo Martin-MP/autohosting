@@ -27,7 +27,7 @@ def create_directory(username, domain):
         f"chmod 755 /var/www/{username}/{domain}/",
         f"chown root:root /var/www/{username}",
         f"touch /var/www/{username}/{domain}/index.html",
-        f"echo '<html><head><title>Welcome to {domain}!</title></head><body><h1>Success!  The {domain} virtual host is working!</h1></body></html>' > /var/www/{username}/{domain}/index.html",
+        f"echo '<html><head><title>Bienvenido a {domain}.muguetabrothers.co.uk</title></head><body><h1>Bienvenido a tu nuevo sitio web, {username}</h1><p>Puedes modificar tu sitio web entrando por sftp con tu usuario y contraseña en {domain}.muguetabrothers.co.uk</h1></body></html>' > /var/www/{username}/{domain}/index.html",
         f"chown {username}:clients /var/www/{username}/{domain}",
         f"chown {username}:clients /var/www/{username}/{domain}/index.html",
         f"chmod 755 /var/www/{username}/{domain}/index.html"
