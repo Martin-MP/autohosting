@@ -8,7 +8,6 @@
     padding-left: 40px;
     padding-right: 20px;
   }
-
 .mugetabrothers{
   max-width: 20%;
 }
@@ -22,6 +21,13 @@
     align-items: center;
     height: 100vh;
   }
+
+td{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .css-selector {
     font-family: 'Rubik Mono One', serif;
 }
