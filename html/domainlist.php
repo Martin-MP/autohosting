@@ -70,10 +70,10 @@
                 echo "<table class='table justify-content-center'>";
                 echo "<tbody>";
                 while($row = mysqli_fetch_assoc($result)) {
-                  echo "<tr><td><p style='font-family: Rubik Mono One;'>";
+                  echo "<tr><td class='justify-content-center'><p style='font-family: Rubik Mono One;'>";
                   echo $row["domain"];
                   echo "</p></td>";
-                  echo "<td><button type='submit' class='btn btn-danger'>Eliminar</button></td>";
+                  echo "<td class='justify-content-center'><button type='submit' class='btn btn-danger'>Eliminar</button></td>";
                   echo "</tr>";
                 }
                 echo "</tbody>";
