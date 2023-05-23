@@ -92,9 +92,10 @@
                 echo "<p>Estamos haciendo todo lo necesario para crear tu nuevo dominio. ¡Pronto serás redirigido a su página principal!</p>";
                 $domain_query = "INSERT INTO domains (domain, user) VALUES ('" . mysqli_real_escape_string($connection, $_POST["domain"]) . "', '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "')";
                 $domain_result = mysqli_query($connection, $domain_query);
-                $command = "../newhosting.py";
+                $command = "python3 ../newhosting.py";
                 exec($command, $output, $retval);
                 echo $retval;
+                echo $output;
                 exit();
               }        
             }
