@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../CSS/indice.css" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-    </style>
 </head>
 <body>
     <div class="container">
@@ -17,7 +15,8 @@
                 <button class="list-item-button btn btn-primary">Botón 1</button>
             </div>
             <div class="list-item">
-                <span class="list-item-text">Texto 2</span>
+                <p style="font-family> </p>
+        <label style="font-family: Rubik Mono One;" for="domain" class="form-label">Pon un dominio:</label>
                 <button class="list-item-button btn btn-primary">Botón 2</button>
             </div>
             <div class="list-item">
