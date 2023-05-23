@@ -16,9 +16,7 @@
                 <p>hola</p>
                 <p>aaaa</p>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div>
+            <div class="col-md-6">
                 <button type="submit" class="btn-primary"> hola </button>
                 <button type="submit" class="btn-primary"> hola </button>
                 <button type="submit" class="btn-primary"> hola </button>
