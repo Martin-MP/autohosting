@@ -64,9 +64,14 @@
             }
 
             if ($valid) {
-              echo "<p>texto de confirmación de inicio de sesión correcto</p>";
-              $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
-              $user_result = mysqli_query($connection, $user_query);
+              $query = "SELECT domain FROM domains WHERE user = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
+              $result = mysqli_query($connection, $query);
+              if (mysqli_num_rows($result) > 0) {
+
+              }
+              else {
+              echo "<p>No parece que tengas ningún sitio web. Crea uno.</p>";
+              }
               exit();
             }      
             ?>
