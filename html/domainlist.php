@@ -73,7 +73,7 @@
                   echo "<tr><td><p style='font-family: Rubik Mono One;'>";
                   echo $row["domain"];
                   echo "</p></td>";
-                  echo "<td><button type='submit' class='btn btn-danger'>Eliminar este dominio</button></td>";
+                  echo "<td><button type='submit' class='btn btn-danger'>Eliminar</button></td>";
                   echo "</tr>";
                 }
                 echo "</tbody>";
