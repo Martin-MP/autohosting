@@ -67,10 +67,12 @@
               $query = "SELECT domain FROM domains WHERE user = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
               $result = mysqli_query($connection, $query);
               if (mysqli_num_rows($result) > 0) {
-
+                while($row = mysqli_fetch_assoc($result)) {
+                  echo '$row["id"]<br>';
+                }
               }
               else {
-              echo "<p>No parece que tengas ningún sitio web. Crea uno.</p>";
+                echo "<p>No parece que tengas ningún sitio web. Crea uno.</p>";
               }
               exit();
             }      
