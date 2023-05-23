@@ -56,9 +56,19 @@
                 $user_invalid = true;
               }
 
+              if (!ctype_alnum($_POST["user"])) {
+                $valid = false;
+                $user_notalphanumeric = true;
+              }
+
               if ($_POST["pass"] != $_POST["pass2"]) {
                 $valid = false;
                 $pass_invalid = true;
+              }
+
+              if (!ctype_alnum($_POST["pass"])) {
+                $valid = false;
+                $pass_notalphanumeric = true;
               }
 
               if (empty($_POST["uname"])) {
@@ -98,6 +108,10 @@
         if ($user_invalid) {
           echo "<div class='invalid-feedback'>El usuario ya existe</div>";
         }
+
+        if ($user_notalphanumeric) {
+          echo "<div class='invalid-feedback'>El nombre de usuario tiene un formato inválido</div>";
+        }
         ?>
 
       </div>
@@ -106,6 +120,13 @@
         <input type="password" class="form-control" id="pass" placeholder="Introduce una contraseña" name="pass" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+
+        <?php
+        if ($pass_notalphanumeric) {
+          echo "<div class='invalid-feedback'>La contraseña tiene un formato inválido/div>";
+        }
+        ?>
+
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass2" class="form-label">Confirmar Contraseña:</label>
