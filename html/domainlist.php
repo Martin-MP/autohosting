@@ -37,6 +37,40 @@
         <div class="row">
          <div>
             <h2 class="container text-center Grande my-5">Ver Dominios</h2>
+
+            <?php
+            $valid = true;
+            $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
+            if (!$connection) {
+              echo "Error: Unable to connect to MySQL." . PHP_EOL;
+              echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+              header('location:erestonto.php');
+            exit;
+            }
+
+            $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
+            $result = mysqli_query($connection, $query);
+            if (mysqli_num_rows($result) < 1) {
+              $valid = false;
+              $user_invalid = true;
+            }
+            else {
+              $query = "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "' AND password = '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "'";
+              $result = mysqli_query($connection, $query);
+              if (mysqli_num_rows($result) < 1) {
+                $valid = false;
+                $pass_invalid = true;
+              } 
+            }
+
+            if ($valid) {
+              echo "<p>texto de confirmación de inicio de sesión correcto</p>";
+              $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
+              $user_result = mysqli_query($connection, $user_query);
+              exit();
+            }      
+            ?>
+
             <h3 class="container text-center Grande2 my-5">Has de Iniciar sesión</h2>
          </div>
         </div>
@@ -50,12 +84,28 @@
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
 
+        <?php
+        if ($user_invalid) {
+          echo "<div class='invalid-feedback'>El usuario no existe</div>";
+        }
+        if ($pass_invalid) {
+          echo "<div class='invalid-feedback'>El usuario o la contraseña no son correctos</div>";
+        }
+        ?>
+
       </div>
       <div class="mb-3 justify-content-center align-items-center align-items-center align-items-center">
         <label style="font-family: Rubik Mono One;" for="pass" class="form-label">Contraseña:</label>
         <input type="password" class="form-control" id="pass" placeholder="Introduce una contraseña" name="pass" required>
         <div class="valid-feedback">Válido.</div>
         <div class="invalid-feedback">Por favor, rellena este apartado.</div>
+
+        <?php
+        if ($pass_invalid) {
+          echo "<div class='invalid-feedback'>El usuario o la contraseña no son correctos</div>";
+        }
+        ?>
+
       </div>
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
       </div class="justify-content-center align-items-center align-items-center align-items-center">
@@ -64,23 +114,6 @@
       </div>
   </div>
       </form>
-      <div class="row justify-content-center align-items-center align-items-center align-items-center">
-        <div class="col-md-4 justify-content-center align-items-center align-items-center align-items-center">
-          <p>PONER AQUÍ LISTA O LO QUE SEA</p>
-
-          <?php
-          $valid = true;
-          $connection = mysqli_connect("localhost", "php", "alumnat", "autohosting_db");
-          if (!$connection) {
-            echo "Error: Unable to connect to MySQL." . PHP_EOL;
-            echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-            header('location:erestonto.php');
-          exit;
-          }
-          ?>
-
-        </div>
-      </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
    </body>
 </html>
