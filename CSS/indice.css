@@ -69,3 +69,23 @@ h1 {
 .menosmargin {
   margin-top: 0px;
 }
+.list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.list-item {
+  flex-basis: 50%;
+  margin-bottom: 20px;
+}
+
+.list-item-text {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.list-item-button {
+  display: inline-block;
+}
