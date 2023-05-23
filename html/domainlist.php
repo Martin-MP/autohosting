@@ -70,10 +70,10 @@
                 echo "<table class='table table-hover justify-content-center align-items-center'>";
                 echo "<tbody>";
                 while($row = mysqli_fetch_assoc($result)) {
-                  echo "<tr><td class='justify-content-center align-items-center'><p style='font-family: Rubik Mono One;'>";
+                  echo "<tr><td class='centertd'><p style='font-family: Rubik Mono One;'>";
                   echo $row["domain"];
                   echo "</p></td>";
-                  echo "<td class='justify-content-center align-items-center'><button type='submit' class='btn btn-danger'>Eliminar</button></td>";
+                  echo "<td class='centertd'><button type='submit' class='btn btn-danger'>Eliminar</button></td>";
                   echo "</tr>";
                 }
                 echo "</tbody>";
