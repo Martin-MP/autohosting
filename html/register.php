@@ -56,7 +56,7 @@
                 $user_invalid = true;
               }
 
-              if (!ctype_alnum($_POST["user"])) {
+              if (!ctype_alnum($_POST["uname"])) {
                 $valid = false;
                 $user_notalphanumeric = true;
               }
