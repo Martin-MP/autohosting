@@ -5,7 +5,7 @@
       <title>Mugueta Brothers</title>
       <link rel="icon" type="image/x-icon" href="/images/muguetabrothers.ico">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="../CSS/indice.css" />
+      <link rel="stylesheet" href="../CSS/indice.css">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik Mono One">
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -67,13 +67,13 @@
               $query = "SELECT domain FROM domains WHERE user = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
               $result = mysqli_query($connection, $query);
               if (mysqli_num_rows($result) > 0) {
-                echo "<table class='table justify-content-center'>";
+                echo "<table class='table table-hover justify-content-center align-items-center'>";
                 echo "<tbody>";
                 while($row = mysqli_fetch_assoc($result)) {
-                  echo "<tr><td class='centertd'><p style='font-family: Rubik Mono One;'>";
+                  echo "<tr><td class='justify-content-center align-items-center'><p style='font-family: Rubik Mono One;'>";
                   echo $row["domain"];
                   echo "</p></td>";
-                  echo "<td class='centertd'><button type='submit' class='btn btn-danger'>Eliminar</button></td>";
+                  echo "<td class='justify-content-center align-items-center'><button type='submit' class='btn btn-danger'>Eliminar</button></td>";
                   echo "</tr>";
                 }
                 echo "</tbody>";
