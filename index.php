@@ -72,7 +72,7 @@
         <span class="carousel-control-next-icon"></span>
         </button>
      </div>
-     <div class="col-md-2 col-sm-12">
+    <div class="col-md-2 col-sm-12">
         <!-- El col-md 2 es para imagenes medianas de ahí el medium (md) y col-sm-5 es para imagenes pequeñas o small (sm) -->
         <div class="">
           <a class="btn btn-primary btn-lg btn-block" href="html/register.php">Crear Cuenta</a>
