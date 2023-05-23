@@ -14,10 +14,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="container-fluid col-md-6">
-                    <p> troste</p>
+                    <p> Página</p>
                 </div>
                 <div class="container-fluid col-md-6">
-                    <p> auuuuuuuu </p>
+                    <button type="submit" action="../eliminar.php" class="btn-primary"> holaa</button>
                 </div>
             </div>
         </div>

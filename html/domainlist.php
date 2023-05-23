@@ -67,14 +67,23 @@
               $query = "SELECT domain FROM domains WHERE user = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
               $result = mysqli_query($connection, $query);
               if (mysqli_num_rows($result) > 0) {
+                echo "<table class='table'>";
+                echo "<tbody>";
                 while($row = mysqli_fetch_assoc($result)) {
+                  echo "<tr>";
+                  echo "<td>";
                   echo $row["domain"];
-                  echo "<br>";
+                  echo "</td>";
+                  echo "<td><button type='submit' class='btn btn-danger'>Eliminar este dominio</button></td>";
+                  echo "</tr>";
                 }
+                echo "</tbody>";
+                echo "</table>";
               }
               else {
                 echo "<p>No parece que tengas ningún sitio web. Crea uno.</p>";
               }
+              echo "<button type='submit' class='btn btn-danger'>Eliminar mi usuario</button>";
               exit();
             }      
             ?>
@@ -83,7 +92,8 @@
          </div>
         </div>
       </div>
-      <form action="" class="was-validated" method="post">
+
+<form action="" class="was-validated" method="post">
   <div class="row justify-content-center align-items-center align-items-center align-items-center">
     <div class="col-md-4 col-sm-4 justify-content-center align-items-center align-items-center align-items-center">
       <div class="mb-3 mt-3 justify-content-center align-items-center align-items-center align-items-center">
