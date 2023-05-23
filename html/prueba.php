@@ -9,19 +9,21 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="col-md-6">
-            <div class="row">
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
                 <p> tu madre es una diosita</p>
                 <p>hola</p>
                 <p>aaaa</p>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="row">
+            <div>
                 <button type="submit" class="btn-primary"> hola </button>
                 <button type="submit" class="btn-primary"> hola </button>
                 <button type="submit" class="btn-primary"> hola </button>
             </div>
+        </div>
         </div>
     </div>
 </body>
