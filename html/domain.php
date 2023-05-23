@@ -95,6 +95,7 @@
                 $command = "python3 ../newhosting.py";
                 exec($command, $output, $retval);
                 echo $retval;
+                echo "<br>";
                 echo $output;
                 exit();
               }        
