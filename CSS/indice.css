@@ -22,7 +22,7 @@
     height: 100vh;
   }
 
-td{
+.centertd{
     display: flex;
     justify-content: center;
     align-items: center;
