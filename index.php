@@ -79,11 +79,9 @@
         </div>
         <div class="clanbajo centrado">
           <a class="btn btn-primary btn-lg btn-block" href="html/domainlist.php">Listar Dominios</a>
-          <!-- Logo del clan, cuando clicas te redirecciona a la pagina ofcial de clan -->
         </div>
         <div class="disneybajo">
           <a class="btn btn-primary btn-lg btn-block" href="html/domain.php">Crear Dominio</a>
-          <!-- Logo de disney channel, cuando clicas te redirecciona a la pagina oficial de disney channel -->
         </div>
      </div>
   </div>

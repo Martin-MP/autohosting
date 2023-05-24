@@ -85,6 +85,7 @@
 
               if ($valid) {
                 echo "<p>Tu usuario se ha creado correctamente. ¡Ve a la página Crear Dominio para crear tu nuevo sitio!</p>";
+                echo "<a class='btn btn-primary btn-lg btn-block' href='domain.php'>Crear Dominio</a>";
                 $user_query = "INSERT INTO users (username, password) VALUES ('" . mysqli_real_escape_string($connection, $_POST["uname"]) . "', '" . mysqli_real_escape_string($connection, $_POST["pass"]) . "')";
                 $user_result = mysqli_query($connection, $user_query);
                 exit();
