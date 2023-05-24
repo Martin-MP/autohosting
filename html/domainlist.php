@@ -87,12 +87,12 @@
             if (isset($_POST['delete_hosting'])) {
               $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["subdomain"]) . "'";
               $domain_result = mysqli_query($connection, $domain_query);
-              echo "Domain query: " . $domain_query . "<br>";
-              echo "Domain result: " . $domain_result . "<br>";
+              // echo "Domain query: " . $domain_query . "<br>";
+              // echo "Domain result: " . $domain_result . "<br>";
               $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $_POST["username"] . " -d " . $_POST["subdomain"] . " 2>&1";
               $output = shell_exec($command);
-              echo "Command: " . $command . "<br>";
-              echo "Output: " . $output . "<br>";
+              // echo "Command: " . $command . "<br>";
+              // echo "Output: " . $output . "<br>";
               if (strpos($output, 'Error') !== false) {
                 echo "<p>Ha habido un error al eliminar el dominio.</p>";
               }
