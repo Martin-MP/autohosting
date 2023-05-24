@@ -101,8 +101,6 @@
               $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $selected_user . " -d " . $_POST["delete_hosting"] . " 2>&1";
               echo $command;
               exec($command, $output, $retval);
-              
-              echo $command;
               if ($retval == 0) {
                 echo "<p>Dominio eliminado correctamente.</p>";
               }
@@ -120,7 +118,7 @@
               $command = "sudo -n python3 /srv/autohosting/deleteuser.py -u " . $_POST["delete_user"] . " 2>&1";
               exec($command, $output, $retval);
               if ($retval == 0) {
-                echo "<p>Usuario eliminado correctamente.</p>";
+                $user_deleted = true;
               }
               else {
                 echo "<p>Ha habido un error al eliminar el usuario.</p>";
@@ -168,6 +166,13 @@
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
       </div class="justify-content-center align-items-center align-items-center align-items-center">
       <button type="submit" class="btn btn-primary">¡Muestra!</button>
+
+      <?php
+      if ($user_deleted) {
+        echo "<div class='valid-feedback'>El usuario o la contraseña no son correctos</div>";
+      }
+      ?>
+
     </div>
       </div>
   </div>
