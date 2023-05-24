@@ -95,13 +95,14 @@
               sleep(3);
               $user_query = "SELECT user FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
-              
+
               while($row = mysqli_fetch_assoc($user_result)) {
                 $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $row["user"] . " -d " . $_POST["delete_hosting"] . " 2>&1";
                 echo $command;
                 exec($command, $output, $retval);
               }
 
+              sleep(3);
               $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $domain_result = mysqli_query($connection, $domain_query);
 
@@ -131,6 +132,13 @@
             ?>
 
             <h3 class="container text-center Grande2 my-5">Has de Iniciar sesión</h2>
+
+            <?php
+            if ($user_deleted) {
+              echo "<div class='valid-feedback'>El usuario se ha eliminado correctamente</div>";
+            }
+            ?>
+
          </div>
         </div>
       </div>
@@ -170,13 +178,6 @@
       <div class="form-check mb-3 justify-content-center align-items-center align-items-center align-items-center">
       </div class="justify-content-center align-items-center align-items-center align-items-center">
       <button type="submit" class="btn btn-primary">¡Muestra!</button>
-
-      <?php
-      if ($user_deleted) {
-        echo "<div class='valid-feedback'>El usuario o la contraseña no son correctos</div>";
-      }
-      ?>
-
     </div>
       </div>
   </div>
