@@ -99,7 +99,6 @@
               $user_result = mysqli_query($connection, $user_query);
               $selected_user = mysqli_fetch_assoc($user_result);
               $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $selected_user . " -d " . $_POST["delete_hosting"] . " 2>&1";
-              echo $user_query;
               echo $user_result;
               echo $selected_user;
               echo $command;
