@@ -78,9 +78,7 @@
                 echo "<table class='table table-hover justify-content-center align-items-center'><tbody>";
                 while($row = mysqli_fetch_assoc($result)) {
                   echo "<tr><td><p style='font-family: Rubik Mono One;'>" . $row["domain"] . "</p></td>";
-                  echo "<form method='post' action=''>";
-                  echo "<td><button type='submit' name='delete_hosting' class='btn btn-danger' value='" . $row["domain"] . "'>Eliminar</button></td></tr>";
-                  echo "</form>";
+                  echo "<td><form method='post' action=''><button type='submit' name='delete_hosting' class='btn btn-danger' value='" . $row["domain"] . "'>Eliminar</button></form></td></tr>";
                 }
                 echo "</tbody></table>";
               }
