@@ -97,7 +97,8 @@
               $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $domain_result = mysqli_query($connection, $domain_query);
               $selected_user = mysqli_fetch_array($user_result);
-              $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $selected_user["user"] . " -d " . $_POST["delete_hosting"] . " 2>&1";
+              $selected_user = $selected_user["user"];
+              $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $selected_user . " -d " . $_POST["delete_hosting"] . " 2>&1";
               echo $command;
               exec($command, $output, $retval);
               sleep(3);
