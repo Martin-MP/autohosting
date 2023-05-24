@@ -98,7 +98,7 @@
                 echo $retval;
                 if ($retval == 0) {
                   echo "<p>Estamos haciendo todo lo necesario para crear tu nuevo dominio. ¡Pronto serás redirigido a su página principal!</p>";
-                  header("Location:" . $_POST["domain"].".muguetabrothers.co.uk");
+                  header("Location: https://".$_POST["domain"].".muguetabrothers.co.uk");
                   exit;
                 }
                 else {
