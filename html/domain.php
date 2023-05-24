@@ -93,18 +93,15 @@
                 $domain_result = mysqli_query($connection, $domain_query);
                 $command = "sudo -n python3 /srv/autohosting/newhosting.py -u " . $_POST["uname"] . " -d " . $_POST["domain"] . " -p " . $_POST["pass"];
                 exec($command, $output, $retval);
-                echo $retval;
-                sleep(2);
-                echo $retval;
                 if ($retval == 0) {
                   echo "<p>Estamos haciendo todo lo necesario para crear tu nuevo dominio. ¡Pronto serás redirigido a su página principal!</p>";
+                  sleep(2);
                   header("Location: https://".$_POST["domain"].".muguetabrothers.co.uk");
                   exit;
                 }
                 else {
                   echo "<p>Ha ocurrido un error al crear el sitio web";
                 }
-                echo $retval;
                 exit();
               }        
             }
