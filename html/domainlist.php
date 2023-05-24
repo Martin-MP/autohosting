@@ -92,7 +92,6 @@
             }
 
             if ($_POST["delete_hosting"]) {
-              sleep(1);
               $user_query = "SELECT user FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
 
@@ -102,7 +101,6 @@
                 exec($command, $output, $retval);
               }
 
-              sleep(1);
               $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $domain_result = mysqli_query($connection, $domain_query);
 
@@ -112,8 +110,6 @@
               else {
                 echo "<p>Ha habido un error al eliminar el dominio.</p>";
               }
-              echo $output;
-              echo $retval;
             }
 
             if ($_POST["delete_user"]) {
