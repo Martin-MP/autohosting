@@ -124,7 +124,7 @@
 
         <?php
         if ($pass_notalphanumeric) {
-          echo "<div class='invalid-feedback'>La contraseña tiene un formato inválido/div>";
+          echo "<div class='invalid-feedback'>La contraseña tiene un formato inválido</div>";
         }
         ?>
 
