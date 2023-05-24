@@ -92,7 +92,7 @@
             }
 
             if ($_POST["delete_hosting"]) {
-              sleep(3);
+              sleep(7);
               $user_query = "SELECT * FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
               $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
@@ -112,7 +112,7 @@
             }
 
             if ($_POST["delete_user"]) {
-              sleep(3);
+              sleep(7);
               $user_query = "DELETE FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["delete_user"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
               $command = "sudo -n python3 /srv/autohosting/deleteuser.py -u " . $_POST["delete_user"] . " 2>&1";
