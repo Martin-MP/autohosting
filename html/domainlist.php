@@ -72,7 +72,7 @@
                 while($row = mysqli_fetch_assoc($result)) {
                   echo "<tr><td><p style='font-family: Rubik Mono One;'>" . $row["domain"] . "</p></td>";
                   echo "<form method='post' action=''>";
-                  echo "<td><button type='submit' name='delete_hosting' class='btn btn-danger'>Eliminar</button></td></tr>";
+                  echo "<td><button type='submit' name='delete_hosting' class='btn btn-danger' value='" . $row["domain"] . "'>Eliminar</button></td></tr>";
                   echo "</form>";
                 }
                 echo "</tbody></table>";
