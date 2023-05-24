@@ -66,6 +66,7 @@
             if ($valid) {
               $query = "SELECT domain FROM domains WHERE user = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
               $result = mysqli_query($connection, $query);
+              $username = $_POST["uname"];
               if (mysqli_num_rows($result) > 0) {
                 echo "<table class='table table-hover justify-content-center align-items-center'><tbody>";
                 while($row = mysqli_fetch_assoc($result)) {
