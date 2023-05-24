@@ -84,10 +84,11 @@
               echo "</form>";
               exit();
             }
+
             if ($_POST['delete_hosting']) {
-              $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["domain"]) . "'";
+              $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $domain_result = mysqli_query($connection, $domain_query);
-              $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $_POST["uname"] . " -d " . $_POST["subdomain"] . " 2>&1";
+              $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $_POST["uname"] . " -d " . $_POST["delete_hosting"] . " 2>&1";
               $output = shell_exec($command);
               if (strpos($output, 'Error') !== false) {
                 echo "<p>Ha habido un error al eliminar el dominio.</p>";
@@ -97,10 +98,11 @@
               }
               exit();
             }
+
             if ($_POST['delete_user']) {
               $user_query = "DELETE FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["delete_user"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
-              $command = "sudo -n python3 /srv/autohosting/deleteuser.py -u " . $_POST["username"] . " 2>&1";
+              $command = "sudo -n python3 /srv/autohosting/deleteuser.py -u " . $_POST["delete_user"] . " 2>&1";
               $output = shell_exec($command);
               if (strpos($output, 'Error') !== false) {
                 echo "<p>Ha habido un error al eliminar el usuario.</p>";
