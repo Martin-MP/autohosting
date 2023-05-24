@@ -103,10 +103,10 @@
               $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $selected_user . " -d " . $_POST["delete_hosting"] . " 2>&1";
               exec($command, $output, $retval);
               if ($retval == 0) {
-                echo "<p>Ha habido un error al eliminar el dominio.</p>";
+                echo "<p>Dominio eliminado correctamente.</p>";
               }
               else {
-                echo "<p>Dominio eliminado correctamente.</p>";
+                echo "<p>Ha habido un error al eliminar el dominio.</p>";
               }
               echo $output;
               echo $retval;
@@ -119,10 +119,10 @@
               $command = "sudo -n python3 /srv/autohosting/deleteuser.py -u " . $_POST["delete_user"] . " 2>&1";
               exec($command, $output, $retval);
               if ($retval == 0) {
-                echo "<p>Ha habido un error al eliminar el usuario.</p>";
+                echo "<p>Usuario eliminado correctamente.</p>";
               }
               else {
-                echo "<p>Usuario eliminado correctamente.</p>";
+                echo "<p>Ha habido un error al eliminar el usuario.</p>";
               }
             }
             ?>
