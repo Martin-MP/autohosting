@@ -101,8 +101,10 @@
                 echo $command;
                 exec($command, $output, $retval);
               }
+
               $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $domain_result = mysqli_query($connection, $domain_query);
+              
               if ($retval == 0) {
                 echo "<p>Dominio eliminado correctamente.</p>";
               }
