@@ -70,18 +70,53 @@
                 echo "<table class='table table-hover justify-content-center align-items-center'><tbody>";
                 while($row = mysqli_fetch_assoc($result)) {
                   echo "<tr><td><p style='font-family: Rubik Mono One;'>" . $row["domain"] . "</p></td>";
-                  echo "<td><button type='submit' class='btn btn-danger'>Eliminar</button></td></tr>";
+                  echo "<form method='post' action=''>";
+                  echo "<td><button type='submit' name='delete_hosting' class='btn btn-danger'>Eliminar</button></td></tr>";
+                  echo "</form>";
                 }
                 echo "</tbody></table>";
               }
               else {
                 echo "<p>No parece que tengas ningún sitio web. Crea uno.</p>";
               }
+              echo "<form method='post' action=''>";
               echo "<button type='submit' class='btn btn-danger'>Eliminar mi usuario</button>";
+              echo "</form>";
               exit();
-            }      
+            }
+            if (isset($_POST['delete_hosting'])) {
+              $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["subdomain"]) . "'";
+              $domain_result = mysqli_query($connection, $domain_query);
+              echo "Domain query: " . $domain_query . "<br>";
+              echo "Domain result: " . $domain_result . "<br>";
+              $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $_POST["username"] . " -d " . $_POST["subdomain"] . " 2>&1";
+              $output = shell_exec($command);
+              echo "Command: " . $command . "<br>";
+              echo "Output: " . $output . "<br>";
+              if (strpos($output, 'Error') !== false) {
+                echo "<p>Ha habido un error al eliminar el dominio.</p>";
+              }
+              else {
+                echo "<p>Dominio eliminado correctamente.</p>";
+              }
+            }
+            if (isset($_POST['delete_user'])) {
+              $user_query = "DELETE FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["username"]) . "'";
+              $user_result = mysqli_query($connection, $user_query);
+              // echo "User query: " . $user_query . "<br>";
+              // echo "User result: " . $user_result . "<br>";
+              $command = "sudo -n python3 /srv/autohosting/deleteuser.py -u " . $_POST["username"] . " 2>&1";
+              $output = shell_exec($command);
+              // echo "Command: " . $command . "<br>";
+              // echo "Output: " . $output . "<br>";
+              if (strpos($output, 'Error') !== false) {
+                echo "<p>Ha habido un error al eliminar el usuario.</p>";
+              }
+              else {
+                echo "<p>Usuario eliminado correctamente.</p>";
+              }
+            }
             ?>
-
             <h3 class="container text-center Grande2 my-5">Has de Iniciar sesión</h2>
          </div>
         </div>
