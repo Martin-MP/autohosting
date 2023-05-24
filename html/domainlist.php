@@ -85,7 +85,7 @@
               exit();
             }
 
-            if ($_POST['delete_hosting']) {
+            if ($_POST["delete_hosting"]) {
               sleep(3);
               $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $domain_result = mysqli_query($connection, $domain_query);
@@ -101,10 +101,9 @@
               }
               echo $output;
               echo $retval;
-              exit();
             }
 
-            if ($_POST['delete_user']) {
+            if ($_POST["delete_user"]) {
               sleep(3);
               $user_query = "DELETE FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["delete_user"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
@@ -116,7 +115,6 @@
               else {
                 echo "<p>Usuario eliminado correctamente.</p>";
               }
-              exit();
             }
             ?>
 
