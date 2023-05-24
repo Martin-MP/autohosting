@@ -29,7 +29,7 @@ def check_root():
 
 def delete_user():
     commands = [
-        f"userdel -r {args.username}",
+        f"userdel -rf {args.username}",
         f"rm -rf /var/www/{args.username}",
     ]
     return [os.system(command) for command in commands]
