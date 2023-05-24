@@ -94,11 +94,11 @@
                 $command = "sudo -n python3 /srv/autohosting/newhosting.py -u " . $_POST["uname"] . " -d " . $_POST["domain"] . " -p " . $_POST["pass"];
                 exec($command, $output, $retval);
                 echo $retval;
-                sleep(3);
+                sleep(2);
                 echo $retval;
-                if ($retval = 0) {
+                if ($retval == 0) {
                   echo "<p>Estamos haciendo todo lo necesario para crear tu nuevo dominio. ¡Pronto serás redirigido a su página principal!</p>";
-                  header("Location:" . $_POST["domain"].".muguetabrothers.co.uk");
+                  header("Location: https://".$_POST["domain"].".muguetabrothers.co.uk");
                   exit;
                 }
                 else {
