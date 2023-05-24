@@ -93,12 +93,12 @@
 
             if ($_POST["delete_hosting"]) {
               sleep(3);
-              $user_query = "SELECT user FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
+              $user_query = "SELECT * FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
               $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $domain_result = mysqli_query($connection, $domain_query);
-              $selected_user = mysqli_fetch_assoc($user_result);
-              $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $user_result . " -d " . $_POST["delete_hosting"] . " 2>&1";
+              $selected_user = mysqli_fetch_array($user_result);
+              $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $selected_user["row"] . " -d " . $_POST["delete_hosting"] . " 2>&1";
               echo $command;
               exec($command, $output, $retval);
               if ($retval == 0) {
