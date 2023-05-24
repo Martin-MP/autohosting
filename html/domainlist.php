@@ -96,6 +96,7 @@
               else {
                 echo "<p>Dominio eliminado correctamente.</p>";
               }
+              exit();
             }
             if ($_POST['delete_user']) {
               $user_query = "DELETE FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["delete_user"]) . "'";
@@ -108,8 +109,10 @@
               else {
                 echo "<p>Usuario eliminado correctamente.</p>";
               }
+              exit();
             }
             ?>
+            
             <h3 class="container text-center Grande2 my-5">Has de Iniciar sesión</h2>
          </div>
         </div>
