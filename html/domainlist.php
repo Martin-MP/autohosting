@@ -99,6 +99,7 @@
               else {
                 echo "<p>Dominio eliminado correctamente.</p>";
               }
+              echo $output;
               exit();
             }
 
