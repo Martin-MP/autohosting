@@ -99,6 +99,7 @@
               $user_result = mysqli_query($connection, $user_query);
               $selected_user = mysqli_fetch_assoc($user_result);
               $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $selected_user . " -d " . $_POST["delete_hosting"] . " 2>&1";
+              echo $command;
               exec($command, $output, $retval);
               if ($retval == 0) {
                 echo "<p>Dominio eliminado correctamente.</p>";
@@ -115,7 +116,6 @@
               $user_query = "DELETE FROM users WHERE username = '" . mysqli_real_escape_string($connection, $_POST["delete_user"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
               $command = "sudo -n python3 /srv/autohosting/deleteuser.py -u " . $_POST["delete_user"] . " 2>&1";
-              echo $command;
               exec($command, $output, $retval);
               if ($retval == 0) {
                 echo "<p>Usuario eliminado correctamente.</p>";
