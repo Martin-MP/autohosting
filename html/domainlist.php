@@ -95,7 +95,6 @@
               sleep(3);
               $user_query = "SELECT user FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
-              $selected_user = mysqli_fetch_assoc($user_result);
               while($row = mysqli_fetch_assoc($user_result)) {
                 $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $row["user"] . " -d " . $_POST["delete_hosting"] . " 2>&1";
                 echo $command;
@@ -104,7 +103,7 @@
 
               $domain_query = "DELETE FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $domain_result = mysqli_query($connection, $domain_query);
-              
+
               if ($retval == 0) {
                 echo "<p>Dominio eliminado correctamente.</p>";
               }
