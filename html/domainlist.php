@@ -62,6 +62,14 @@
                 $pass_invalid = true;
               } 
             }
+             
+            if (empty($_POST["uname"])) {
+              $valid = false;
+            }
+
+            if (empty($_POST["pass"])) {
+                $valid = false;
+            }
 
             if ($valid) {
               $query = "SELECT domain FROM domains WHERE user = '" . mysqli_real_escape_string($connection, $_POST["uname"]) . "'";
