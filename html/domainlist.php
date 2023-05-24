@@ -99,7 +99,8 @@
               $domain_result = mysqli_query($connection, $domain_query);
               $user_query = "SELECT user FROM domains WHERE domain = '" . mysqli_real_escape_string($connection, $_POST["delete_hosting"]) . "'";
               $user_result = mysqli_query($connection, $user_query);
-              $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $user_result . " -d " . $_POST["delete_hosting"] . " 2>&1";
+              $selected_user = mysqli_fetch_assoc($user_result);
+              $command = "sudo -n python3 /srv/autohosting/deletehosting.py -u " . $selected_user . " -d " . $_POST["delete_hosting"] . " 2>&1";
               exec($command, $output, $retval);
               if ($retval == 0) {
                 echo "<p>Ha habido un error al eliminar el dominio.</p>";
