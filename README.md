@@ -1,8 +1,2 @@
 # autohosting
-autohosting es un scriptque crea uvehosts
-
-wow
-
-(FUNCIONA)
-
-(es falso)
+autohosting es un sitio web para hacer más sitios web
